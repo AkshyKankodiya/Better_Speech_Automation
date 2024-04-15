@@ -1,0 +1,29 @@
+{
+  "name": "better_speech_test_automation",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "test:reporter": "playwright test --headed --reporter=allure-playwright",
+    "allure-report": "npx allure generate ./allure-results && allure open"
+  },
+  "author": "Rahul Bhutt",
+  "license": "ISC",
+  "dependencies": {
+    "imap": "^0.8.19",
+    "imap-simple": "^5.1.0",
+    "mailparser": "^3.6.5",
+    "mailslurp-client": "^15.17.2",
+    "mailtrap": "^3.2.0",
+    "nodemailer": "^6.9.6",
+    "prettier": "^3.0.3"
+  },
+  "devDependencies": {
+    "@faker-js/faker": "^8.2.0",
+    "@playwright/test": "^1.43.0",
+    "@types/node": "^20.8.6",
+    "allure-commandline": "^2.27.0",
+    "allure-playwright": "^2.15.1"
+  }
+}
