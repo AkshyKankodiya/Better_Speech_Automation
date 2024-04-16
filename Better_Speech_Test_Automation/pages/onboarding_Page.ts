@@ -304,6 +304,16 @@ class onboardingPage {
       await onboardingTab.goto('/' + 'financialaid');
 
       const popForNEW1 = onboardingTab.locator('//*[@data-block-level-container="PopupContainer"]')
+      const popForNEW6 = onboardingTab.locator('//*[@class="betterspeech-exit-closeright-contaier"]')
+      async function handlePopups() {
+        if (await popForNEW1.isVisible() || await popForNEW6.isVisible()) {
+          if (await popForNEW1.isVisible()) {
+            await onboardingTab.keyboard.press('Escape');
+          } else {
+            await popForNEW6.click();
+          }
+        }
+      }
 
 
       await this.page.waitForTimeout(1000);
@@ -314,7 +324,7 @@ class onboardingPage {
       const randomIndex = Math.floor(Math.random() * options.length);
       const randomOption = options[randomIndex];
       // Click the randomly selected option
-      await this.page.waitForTimeout(1000);
+      //await this.page.waitForTimeout(1000);
       await randomOption.click();
 
       // await this.page.waitForTimeout(1000);
@@ -327,13 +337,15 @@ class onboardingPage {
       const options2 = await radioButtons2.all();
       const randomIndex2 = Math.floor(Math.random() * options2.length);
       const randomOption2 = options2[randomIndex2];
-      await this.page.waitForTimeout(1000);
+      //await this.page.waitForTimeout(1000);
       await randomOption2.click();
 
-      if (await popForNEW1.isVisible()) {
-        await onboardingTab.keyboard.press('Escape');
-      }
+      // if (await popForNEW1.isVisible()) {
+      //   await onboardingTab.keyboard.press('Escape');
+      // }
 
+      handlePopups();
+          
       // await this.page.waitForTimeout(1000);
       // const sAnsware2 = onboardingTab.locator("(//div[contains(text(),'Unemployed')])[2]");
       // await sAnsware2.click();
@@ -371,10 +383,10 @@ class onboardingPage {
       // //await onboardingTab.keyboard.press('Tab');
       // await this.page.waitForTimeout(1000);
 
-      if (await popForNEW1.isVisible()) {
-        await onboardingTab.keyboard.press('Escape');
-      }
-
+      // if (await popForNEW1.isVisible()) {
+      //   await onboardingTab.keyboard.press('Escape');
+      // }
+      handlePopups();
       await this.page.waitForTimeout(1000);
       const radioButtons3 = onboardingTab.locator('//div[contains(text(),"U.S. Armed Forces for purposes other than training?")]//following::div[1]//child::label');
       const options3 = await radioButtons3.all();
@@ -382,22 +394,24 @@ class onboardingPage {
       const randomIndex3 = Math.floor(Math.random() * options3.length);
       const randomOption3 = options3[randomIndex3];
 
-      await this.page.waitForTimeout(1000);
+      //await this.page.waitForTimeout(1000);
       await randomOption3.click();
 
+      handlePopups();
 
-      if (await popForNEW1.isVisible()) {
-        await onboardingTab.keyboard.press('Escape');
-      }
+      // if (await popForNEW1.isVisible()) {
+      //   await onboardingTab.keyboard.press('Escape');
+      // }
 
       // const sAnsware8 = onboardingTab.locator("(//div[text()='Yes'])[2]");
       // await sAnsware8.click();
       // //await onboardingTab.keyboard.press('Tab');
       // await this.page.waitForTimeout(1000);
 
-      if (await popForNEW1.isVisible()) {
-        await onboardingTab.keyboard.press('Escape');
-      }
+      // if (await popForNEW1.isVisible()) {
+      //   await onboardingTab.keyboard.press('Escape');
+      // }
+      handlePopups();
 
       await this.page.waitForTimeout(1000);
       const radioButtons4 = onboardingTab.locator('//div[contains(text(),"Are you a veteran of the U.S. Armed Forces?")]//following::div[1]//child::label');
@@ -405,13 +419,15 @@ class onboardingPage {
       //console.log(options4);
       const randomIndex4 = Math.floor(Math.random() * options4.length);
       const randomOption4 = options4[randomIndex4];
-      await this.page.waitForTimeout(1000);
+      //await this.page.waitForTimeout(1000);
       await randomOption4.click();
 
 
-      if (await popForNEW1.isVisible()) {
-        await onboardingTab.keyboard.press('Escape');
-      }
+      // if (await popForNEW1.isVisible()) {
+      //   await onboardingTab.keyboard.press('Escape');
+      // }
+
+      handlePopups();
 
       // const sAnsware9 = onboardingTab.locator("(//div[text()='Yes'])[3]");
       // await sAnsware9.click();
@@ -422,56 +438,62 @@ class onboardingPage {
       //console.log(options5);
       const randomIndex5 = Math.floor(Math.random() * options5.length);
       const randomOption5 = options5[randomIndex5];
-      await this.page.waitForTimeout(1000);
+      //await this.page.waitForTimeout(1000);
       await randomOption5.click();
 
 
-
-      if (await popForNEW1.isVisible()) {
-        await onboardingTab.keyboard.press('Escape');
-      }
+      handlePopups();
+      // if (await popForNEW1.isVisible()) {
+      //   await onboardingTab.keyboard.press('Escape');
+      // }
       await this.page.waitForTimeout(1000);
       const sAnsware10 = onboardingTab.locator("//input[@name='email']");
       await sAnsware10.fill(this.Email);
 
+      handlePopups();
 
-      if (await popForNEW1.isVisible()) {
-        await onboardingTab.keyboard.press('Escape');
-      }
+      // if (await popForNEW1.isVisible()) {
+      //   await onboardingTab.keyboard.press('Escape');
+      // }
       await this.page.waitForTimeout(1000);
       const ClickCheckOp = onboardingTab.locator("//input[@type='checkbox']");
       await ClickCheckOp.click();
 
-      if (await popForNEW1.isVisible()) {
-        await onboardingTab.keyboard.press('Escape');
-      }
+      // if (await popForNEW1.isVisible()) {
+      //   await onboardingTab.keyboard.press('Escape');
+      // }
+
+      handlePopups();
 
       await this.page.waitForTimeout(1000);
 
-      if (await popForNEW1.isVisible()) {
-        await onboardingTab.keyboard.press('Escape');
-      }
+      // if (await popForNEW1.isVisible()) {
+      //   await onboardingTab.keyboard.press('Escape');
+      // }
+      handlePopups();
 
       const ClickEligibility = onboardingTab.locator("//span[contains(text(),'Check Eligibility')]");
       await ClickEligibility.click();
 
-      if (await popForNEW1.isVisible()) {
-        await onboardingTab.keyboard.press('Escape');
-      }
+      // if (await popForNEW1.isVisible()) {
+      //   await onboardingTab.keyboard.press('Escape');
+      // }
+
+      handlePopups();
 
       await this.page.waitForTimeout(7000);
 
 
-      if (await popForNEW1.isVisible()) {
-        await onboardingTab.keyboard.press('Escape');
-      }
-
+      // if (await popForNEW1.isVisible()) {
+      //   await onboardingTab.keyboard.press('Escape');
+      // }
+      handlePopups();
       await this.page.waitForTimeout(1000);
 
-      if (await popForNEW1.isVisible()) {
-        await onboardingTab.keyboard.press('Escape');
-      }
-
+      // if (await popForNEW1.isVisible()) {
+      //   await onboardingTab.keyboard.press('Escape');
+      // }
+      handlePopups();
       const Test = onboardingTab.locator("//span[text()='Financial Aid applied']");
       await Test.click();
       const TestV = await Test.innerText();
@@ -480,26 +502,27 @@ class onboardingPage {
       expect(TestV).toContain(this.ExpectedFinElm);
 
 
-      if (await popForNEW1.isVisible()) {
-        await onboardingTab.keyboard.press('Escape');
-      }
-
+      // if (await popForNEW1.isVisible()) {
+      //   await onboardingTab.keyboard.press('Escape');
+      // }
+      handlePopups();
       const emailInput = await onboardingTab.locator("//input[@name='email']");
       const emailValue = await emailInput.inputValue();
       console.log('\nExpected Email :', this.Email);
       console.log('Actual Email :', emailValue);
       expect(emailValue).toContain(this.Email);
 
-      if (await popForNEW1.isVisible()) {
-        await onboardingTab.keyboard.press('Escape');
-      }
-
+      // if (await popForNEW1.isVisible()) {
+      //   await onboardingTab.keyboard.press('Escape');
+      // }
+      handlePopups();
       await this.page.waitForTimeout(5000);
 
-      if (await popForNEW1.isVisible()) {
-        await onboardingTab.keyboard.press('Escape');
-      }
+      // if (await popForNEW1.isVisible()) {
+      //   await onboardingTab.keyboard.press('Escape');
+      // }
 
+      handlePopups();
       await this.page.waitForTimeout(5000);
 
       await onboardingTab.close();
@@ -530,5 +553,4 @@ class onboardingPage {
   }
 }
 export default onboardingPage;
-
 
