@@ -1,0 +1,31 @@
+{
+
+    "Valid_Visa" :"4242424242424242",
+
+    "Valid_Mastercard" :"5555555555554444",
+
+    "Valid_American_Express" : "378282246310005",
+    
+    "Valid_Discover" : "6011111111111117",
+
+    "Invalid_Generic_decline" :"4000000000000002",
+
+    "Invalid_Insufficient_funds_decline" :"4000000000009995",
+
+    "Invalid_Lost_card_decline" :"4000000000009987",
+
+    "Invalid_Stolen_card_decline" :"4000000000009979",
+
+    "Invalid_Expired_card_decline" :"4000000000000069",
+
+    "Invalid_incorrect_CVC_decline" :"4000000000000127",
+
+    "Invalid_Processing_error_decline" :"4000000000000119",
+
+    "Invalid_incorrect_number_decline" :"4242424242424241",
+
+    "Invalid_Exceeding_velocity_limit_decline" :"4000000000006975",
+
+    "MM/YY": "10/25",
+    "CVV":"123"
+}
