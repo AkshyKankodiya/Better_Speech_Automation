@@ -225,8 +225,7 @@ class onboardingPage {
       const LinkText = await onboardingTab.locator("//span[contains(text(),'Not ready or can')]")
       const LinkValue = await LinkText.textContent();
       console.log("\nLink Text:", LinkValue);
-      // await LinkText.isVisible();
-      // await LinkText.isEnabled();
+      await this.page.waitForTimeout(1000);
       await LinkText.click();
       
       const stillNot = onboardingTab.locator("//a[text()='Still not ready']")
@@ -235,31 +234,45 @@ class onboardingPage {
        
       const checkEligibility = await onboardingTab.locator("//span[text()='Check Eligibility']")
       await this.page.waitForTimeout(1000);
-      //await checkEligibility.click();
-      //await checkEligibility.isVisible();
       await checkEligibility.isEnabled();
       await this.page.waitForTimeout(1000);
       await onboardingTab.goto('https://www.betterspeech.com/financialaid');
 
       const popForNEW1 = onboardingTab.locator('//*[@data-block-level-container="PopupContainer"]')
+      const popForNEW6 = onboardingTab.locator('//*[@class="betterspeech-exit-closeright-contaier"]')
+      async function handlePopups() {
+        if (await popForNEW1.isVisible() || await popForNEW6.isVisible()) {
+          if (await popForNEW1.isVisible()) {
+            await onboardingTab.keyboard.press('Escape');
+          } else {
+            await popForNEW6.click();
+          }
+        }
+      }
 
       await this.page.waitForTimeout(1000);
-      const sAnswer1 = onboardingTab.locator("(//div[contains(@class,'input-selection')])[1]");
-      await sAnswer1.click();
-      //await onboardingTab.keyboard.press('Tab');
-    
+      const radioButtons = onboardingTab.locator('//div[contains(text(),"current employment status?")]//following::div[1]//child::label');
+      const options = await radioButtons.all();
+
+      const randomIndex = Math.floor(Math.random() * options.length);
+      const randomOption = options[randomIndex];
+      await randomOption.click();
+
       await this.page.waitForTimeout(1000);
-      const sAnswer2 = onboardingTab.locator("(//div[contains(text(),'Unemployed')])[2]");
-      await sAnswer2.click();
-      //await onboardingTab.keyboard.press('Tab');
-      
+      const radioButtons2 = onboardingTab.locator('//div[contains(text(),"status of your spouse?")]//following::div[1]//child::label');
+      const options2 = await radioButtons2.all();
+      const randomIndex2 = Math.floor(Math.random() * options2.length);
+      const randomOption2 = options2[randomIndex2];
+      await randomOption2.click();
+
+      handlePopups();
+
       await this.page.waitForTimeout(1000);
       const sAnswer3 = onboardingTab.locator("//input[@id='input_comp-kvlozmsg']");
       await sAnswer3.click();
       await sAnswer3.fill("10");
+      
       await this.page.waitForTimeout(1000);
-      //await onboardingTab.keyboard.press('Tab');
-
       const sAnswer4 = onboardingTab.locator("//input[@id='input_comp-kvlp3tl3']");
 
       await sAnswer4.click();
@@ -276,84 +289,67 @@ class onboardingPage {
       const sAnswer6 = onboardingTab.locator("//input[@id='input_comp-kvlp5ntk']");
       await sAnswer6.click();
       await sAnswer6.fill("10");
-      await onboardingTab.keyboard.press('Tab');
-      //await this.page.waitForTimeout(1000);
-      //await onboardingTab.keyboard.press('Tab');
+      await this.page.waitForTimeout(1000);
 
-      const sAnswer7 = onboardingTab.locator("(//div[text()='Yes'])[1]");
-      await sAnswer7.click();
-      //await onboardingTab.keyboard.press('Tab');
+      handlePopups();
       await this.page.waitForTimeout(1000);
       const radioButtons3 = onboardingTab.locator('//div[contains(text(),"U.S. Armed Forces for purposes other than training?")]//following::div[1]//child::label');
       const options3 = await radioButtons3.all();
-      //console.log(options3);
+
       const randomIndex3 = Math.floor(Math.random() * options3.length);
       const randomOption3 = options3[randomIndex3];
+      await randomOption3.click();
 
-      const sAnswer8 = onboardingTab.locator("(//div[text()='Yes'])[2]");
-      await sAnswer8.click();
-      //await onboardingTab.keyboard.press('Tab');
-      await this.page.waitForTimeout(1000);
+      handlePopups();
 
-      const sAnswer9 = onboardingTab.locator("(//div[text()='Yes'])[3]");
-      await sAnswer9.click();
-      
       await this.page.waitForTimeout(1000);
       const radioButtons4 = onboardingTab.locator('//div[contains(text(),"Are you a veteran of the U.S. Armed Forces?")]//following::div[1]//child::label');
       const options4 = await radioButtons4.all();
-      //console.log(options4);
+  
       const randomIndex4 = Math.floor(Math.random() * options4.length);
       const randomOption4 = options4[randomIndex4];
-      await this.page.waitForTimeout(1000);
       await randomOption4.click();
 
+      handlePopups();
 
-      if (await popForNEW1.isVisible()) {
-        await onboardingTab.keyboard.press('Escape');
-      }
+      await this.page.waitForTimeout(1000);
+      const radioButtons5 = onboardingTab.locator('//div[contains(text(),"7.")]//following::div[1]//child::label');
+      const options5 = await radioButtons5.all();
+  
+      const randomIndex5 = Math.floor(Math.random() * options5.length);
+      const randomOption5 = options5[randomIndex5];
+      await randomOption5.click();
 
+
+      handlePopups();
+    
+      await this.page.waitForTimeout(1000);
       const sAnswer10 = onboardingTab.locator("//input[@name='email']");
       await sAnswer10.fill(this.Email);
+
+      handlePopups();
+
       await this.page.waitForTimeout(1000);
-      const sAnsware10 = onboardingTab.locator("//input[@name='email']");
-      await sAnsware10.fill(this.Email);
-
-
-      if (await popForNEW1.isVisible()) {
-        await onboardingTab.keyboard.press('Escape');
-      }
       const ClickCheckOp = onboardingTab.locator("//input[@type='checkbox']");
       await ClickCheckOp.click();
 
-      if (await popForNEW1.isVisible()) {
-        await onboardingTab.keyboard.press('Escape');
-      }
+      handlePopups();
+
+      await this.page.waitForTimeout(1000);
+
+      handlePopups();
 
       const ClickEligibility = onboardingTab.locator("//span[contains(text(),'Check Eligibility')]");
       await ClickEligibility.click();
 
-      if (await popForNEW1.isVisible()) {
-        await onboardingTab.keyboard.press('Escape');
-      }
+      handlePopups();
 
       await this.page.waitForTimeout(7000);
 
-
-      if (await popForNEW1.isVisible()) {
-        await onboardingTab.keyboard.press('Escape');
-      }
-
+      handlePopups();
       await this.page.waitForTimeout(1000);
 
-      if (await popForNEW1.isVisible()) {
-        await onboardingTab.keyboard.press('Escape');
-      }
-
-      if (await popForNEW1.isVisible()) {
-        await onboardingTab.keyboard.press('Escape');
-      }
-      await this.page.waitForTimeout(1000);
-
+      handlePopups();
       const Test = onboardingTab.locator("//span[text()='Financial Aid applied']");
       await Test.click();
       const TestV = await Test.innerText();
@@ -361,31 +357,21 @@ class onboardingPage {
       console.log('Actual Financial Element   :', TestV);
       expect(TestV).toContain(this.ExpectedFinElm);
 
-
-      if (await popForNEW1.isVisible()) {
-        await onboardingTab.keyboard.press('Escape');
-      }
-      
+      handlePopups();
       const emailInput = await onboardingTab.locator("//input[@name='email']");
       const emailValue = await emailInput.inputValue();
       console.log('\nExpected Email :', this.Email);
       console.log('Actual Email :', emailValue);
       expect(emailValue).toContain(this.Email);
 
-       if (await popForNEW1.isVisible()) {
-        await onboardingTab.keyboard.press('Escape');
-      }
-
+      handlePopups();
       await this.page.waitForTimeout(5000);
 
-       if (await popForNEW1.isVisible()) {
-        await onboardingTab.keyboard.press('Escape');
-      }
-
+      handlePopups();
       await this.page.waitForTimeout(5000);
 
       await onboardingTab.close();
-    // await this.page.close();*/
+      await this.page.close();
 
     } catch (error) {
       console.error('Error while switching tabs:', error);
@@ -412,5 +398,3 @@ class onboardingPage {
   }
 }
 export default onboardingPage;
-
-
