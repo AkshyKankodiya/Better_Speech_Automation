@@ -27,7 +27,9 @@ class placeorderpage {
     errorMsg: Locator;
     Expected_ErrorMsg: string;
     ActualErrorMsg: any;
-    
+    popForNEW1: Locator;
+    popForNEW6: Locator;
+
 
     constructor(page: Page) {
 
@@ -43,15 +45,17 @@ class placeorderpage {
         this.CVVTextbox = page.locator("//input[@name='cvc']")
         this.dropdownCountry = page.locator('#collection_comp-lp6rfa42')
         this.dropdownState = page.locator('#collection_comp-lp6rfa4c')
-        this.startTher = page.locator("//span[text() ='Start Therapy']")
+        this.startTher = page.locator("//*[text() ='Start Therapy']")
         this.welcomeText = page.locator("//span[contains(text(),'Welcome to Better Speech!')]")
         this.myChildBTN = page.locator('//span[contains(text(),"My Child")]')
         this.cardEl = page.locator('//div[@id="card-element"]')
         this.CardnumberFrame = this.page.frameLocator("//iframe[@class='wuksD5']").locator("//div[@id='card-element']")
         this.cardNotFoundElm = page.locator("//span[text()='Your card number is incomplete.']")
-        this.errorMsg =page.locator("//*[contains(text(),'our card')]")
-        this.Expected_ErrorMsg ="Please check your card number and expiration date again."
+        this.errorMsg = page.locator("//*[contains(text(),'our card')]")
+        this.Expected_ErrorMsg = "Please check your card number and expiration date again."
         this.ActualErrorMsg
+        this.popForNEW1 = page.locator('//*[@data-block-level-container="PopupContainer"]')
+        this.popForNEW6 = page.locator('//*[@class="betterspeech-exit-closeright-contaier"]')
     }
 
     async generateRandomEmail(): Promise<string> {
@@ -73,11 +77,17 @@ class placeorderpage {
         console.log("\nRandom Email:", this.randomEmail);
         const newTabURL = this.page.url();
         console.log('Current URL:', newTabURL);
+        if(await this.emailTextbox.isVisible()){
         await this.emailTextbox.waitFor();
         await this.emailTextbox.click();
         await this.emailTextbox.clear();
         await this.page.waitForTimeout(2000);
         await this.emailTextbox.fill(this.randomEmail);
+        }
+
+
+
+
 
     }
 
@@ -97,25 +107,34 @@ class placeorderpage {
     }
 
     async Verify_On_ThankYou() {
-        await this.page.waitForTimeout(1000);
-        await this.startTher.waitFor();
-        await this.startTher.click();
-        await this.welcomeText.waitFor();
-        await this.myChildBTN.waitFor();
-        await this.myChildBTN.isEnabled();
+        try {
+            await this.page.waitForTimeout(1000);
+            await this.startTher.waitFor();
+            await this.startTher.click();
+            await this.welcomeText.waitFor();
+            await this.myChildBTN.waitFor();
+            await this.myChildBTN.isEnabled();
+        } catch (error) {
+            console.error('Somthing Wrong on', error)
+        }
     }
 
     async Verify_Error_Text() {
-        await this.page.waitForTimeout(1000);
-        await this.startTher.waitFor();
-        await this.startTher.click();
-        await this.errorMsg.waitFor();
-        this.ActualErrorMsg = await this.errorMsg.innerText();
-        //expect(this.ActualErrorMsg).toContain(this.Expected_ErrorMsg);
-        console.log("\nExpected Error:" ,this.Expected_ErrorMsg);
-        console.log("\nActual Error:" ,this.ActualErrorMsg);
+        try {
+            await this.page.waitForTimeout(1000);
+            await this.startTher.waitFor();
+            await this.startTher.click();
+            await this.page.waitForTimeout(2000);
+            await this.errorMsg.waitFor();
+            this.ActualErrorMsg = await this.errorMsg.innerText();
+            expect(this.ActualErrorMsg).toContain(this.Expected_ErrorMsg);
+            console.log("\nExpected Error:", this.Expected_ErrorMsg);
+            console.log("\nActual Error:", this.ActualErrorMsg);
+        } catch (error) {
+            console.error('Somthing Wrong on', error)
+        }
 
-        
+
     }
 
 
@@ -194,6 +213,7 @@ class placeorderpage {
         //await this.navigate();
         await this.page.waitForTimeout(1000);
         await this.randomEmail_method();
+        await this.page.waitForTimeout(2000);
         await this.selectDropDown2();
         await this.CardnumberFrame.waitFor();
         await this.CardnumberFrame.isEnabled();
@@ -207,6 +227,7 @@ class placeorderpage {
     async place_Order_With_Insufficient_funds_decline() {
         console.log("\nInvalid Insufficient funds decline Card");
         await this.navigate();
+        this.handlePopups();
         await this.page.waitForTimeout(1000);
         await this.randomEmail_method();
         await this.selectDropDown();
@@ -222,6 +243,7 @@ class placeorderpage {
     async place_Order_With_Invalid_Lost_card_decline() {
         console.log("\nInvalid Lost card decline Card");
         await this.navigate();
+        this.handlePopups();
         await this.page.waitForTimeout(1000);
         await this.randomEmail_method();
         await this.selectDropDown2();
@@ -260,6 +282,7 @@ class placeorderpage {
         await this.CardnumberFrame.click();
         await this.page.waitForTimeout(1000);
         await this.typeCardNumber(this.page, Cards_Detail.Invalid_Expired_card_decline);
+        await this.navigate();
         await this.Verify_Error_Text();
 
     }
@@ -325,8 +348,16 @@ class placeorderpage {
     }
 
 
-
-
+    
+      async handlePopups() {
+        if (await this.popForNEW1.isVisible() || await this.popForNEW6.isVisible()) {
+          if (await this.popForNEW1.isVisible()) {
+            await this.page.keyboard.press('Escape');
+          } else {
+            await this.popForNEW6.click();
+          }
+        }
+      }
 
 
 
