@@ -23,13 +23,12 @@ test.describe.serial('Place_Order', () => {
        
         await placeorder_page.place_Order_With_Invalid_Generic_decline();
         await placeorder_page.place_Order_With_Insufficient_funds_decline();
-        await placeorder_page.place_Order_With_Invalid_Exceeding_velocity_limit_decline();
-        await placeorder_page.place_Order_With_Invalid_Expired_card_decline();
         await placeorder_page.place_Order_With_Invalid_Lost_card_decline();
         await placeorder_page.place_Order_With_Invalid_Stolen_card_decline();
-        await placeorder_page.place_Order_With_Invalid_incorrect_number_decline();
-        await placeorder_page.place_Order_With_Invalid_Processing_error_decline();
         await placeorder_page.place_Order_With_Invalid_incorrect_CVC_decline();
+        await placeorder_page.place_Order_With_Invalid_Processing_error_decline();
+        await placeorder_page.place_Order_With_Invalid_incorrect_number_decline();
+        await placeorder_page.place_Order_With_Invalid_Exceeding_velocity_limit_decline();
 
         
 
