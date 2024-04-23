@@ -77,31 +77,26 @@ class placeorderpage {
         console.log("\nRandom Email:", this.randomEmail);
         const newTabURL = this.page.url();
         console.log('Current URL:', newTabURL);
-        if(await this.emailTextbox.isVisible()){
+        await this.emailTextbox.isVisible()
         await this.emailTextbox.waitFor();
         await this.emailTextbox.click();
         await this.emailTextbox.clear();
         await this.page.waitForTimeout(2000);
         await this.emailTextbox.fill(this.randomEmail);
-        }
-
-
-
-
 
     }
 
     async selectDropDown() {
-        await this.page.waitForTimeout(2000);
+        await this.dropdownCountry.waitFor();
         await this.dropdownCountry.selectOption({ value: 'United States' });
-        await this.page.waitForTimeout(2000);
+       await this.dropdownState.waitFor();
         await this.dropdownState.selectOption({ value: 'Texas' });
         await this.page.waitForTimeout(1000);
     }
     async selectDropDown2() {
-        await this.page.waitForTimeout(2000);
+        await this.dropdownCountry.waitFor();
         await this.dropdownCountry.selectOption({ value: 'United States' });
-        await this.page.waitForTimeout(2000);
+        await this.dropdownState.waitFor();
         await this.dropdownState.selectOption({ value: 'Florida' });
         await this.page.waitForTimeout(1000);
     }
@@ -127,7 +122,7 @@ class placeorderpage {
             await this.page.waitForTimeout(2000);
             await this.errorMsg.waitFor();
             this.ActualErrorMsg = await this.errorMsg.innerText();
-            expect(this.ActualErrorMsg).toContain(this.Expected_ErrorMsg);
+            this.verifyValue(this.ActualErrorMsg, this.Expected_ErrorMsg, "")
             console.log("\nExpected Error:", this.Expected_ErrorMsg);
             console.log("\nActual Error:", this.ActualErrorMsg);
         } catch (error) {
@@ -138,9 +133,11 @@ class placeorderpage {
     }
 
 
+
     async navigate() {
         this.generateRandomEmail();
         await this.page.goto('/' + this.randomUrl);
+        await this.CardnumberFrame.waitFor();
     }
 
 
@@ -348,16 +345,29 @@ class placeorderpage {
     }
 
 
-    
-      async handlePopups() {
+
+    async handlePopups() {
         if (await this.popForNEW1.isVisible() || await this.popForNEW6.isVisible()) {
-          if (await this.popForNEW1.isVisible()) {
-            await this.page.keyboard.press('Escape');
-          } else {
-            await this.popForNEW6.click();
-          }
+            if (await this.popForNEW1.isVisible()) {
+                await this.page.keyboard.press('Escape');
+            } else {
+                await this.popForNEW6.click();
+            }
         }
-      }
+    }
+
+    async verifyValue(actual: any, expected: any, message?: string) {
+        try {
+            if (actual === expected) {
+                //console.log(`Verification Passed: Actual value "${actual}" matches expected value "${expected}"`);
+            } else {
+                const errorMessage = message ? `${message}: ` : '';
+                throw new Error(`${errorMessage}Verification Failed: Actual value "${actual}" does not match expected value "${expected}"`);
+            }
+        } catch (error) {
+            console.error('\nError occurred during verification:', error.message);
+        }
+    }
 
 
 
