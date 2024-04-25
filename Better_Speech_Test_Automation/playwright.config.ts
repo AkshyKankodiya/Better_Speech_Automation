@@ -7,7 +7,7 @@ import { devices } from '@playwright/test';
 const config: PlaywrightTestConfig = {
     testDir: './tests',
     /* Maximum time one test can run for. */
-    timeout: 400 * 1000,
+    timeout: 450 * 1000,
 
 
     expect: {
@@ -31,24 +31,24 @@ const config: PlaywrightTestConfig = {
     use: {
       /* Maximum time each action such as `click()` can take. Defaults to 0 (no limit). */
       actionTimeout: 0,
-      browserName: 'chromium',
-      channel: 'chrome',
+      // browserName: 'chromium',
+      // channel: 'chrome',
       headless: false,
       /* Base URL to use in actions like `await page.goto('/')`. */
       baseURL: 'https://www.betterspeech.com/',
       viewport: null,
-      launchOptions: {
-        args: ['--start-maximized'],
-      },
+      // launchOptions: {
+      //   args: ['--start-maximized'],
+      // },
       screenshot: "on",
       video: {
         mode: "on",
         size: {
-          // width:1260,
-          // height:1080
+        //   // width:1260,
+        //   // height:1080
           width:1366,
           height:768
-        }
+         }
       },
   
       /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
@@ -57,14 +57,14 @@ const config: PlaywrightTestConfig = {
     },
   
     /* Configure projects for major browsers */
-    // projects: [
-    //   {
-    //     name: 'chromium',
-    //     use: {
-    //       ...devices['Desktop Chrome'],
-    //       viewport: { width: 1280, height: 720 },
-    //     },
-    //   },
+     projects: [
+      {
+        name: 'chromium',
+        use: {
+          ...devices['Desktop Chrome'],
+          viewport: { width: 1366, height: 768 },
+        },
+      },
   
       // {
       //   name: 'Firefox',
@@ -81,20 +81,20 @@ const config: PlaywrightTestConfig = {
       // },
   
       // /* Test against mobile viewports. */
-      // {
-      //   name: 'Samsung',
-      //   use: {
-      //     ...devices['Galaxy S9+'],
-      //     hasTouch: true, 
-      //   },
-      // },
-      // {
-      //   name: 'iPhone',
-      //   use: {
-      //     ...devices['iPhone 11 Pro'],
-      //     hasTouch: true, 
-      //   },
-      // },
+       {
+        name: 'Samsung',
+        use: {
+          ...devices['Galaxy S9+'],
+          hasTouch: true, 
+        },
+      },
+      {
+        name: 'iPhone',
+        use: {
+          ...devices['iPhone 14 Pro Max'],
+          hasTouch: true, 
+        },
+      },
   
       /* Test against branded browsers. */
       // {
@@ -109,7 +109,7 @@ const config: PlaywrightTestConfig = {
       //     channel: 'chrome',
       //   },
       // },
-    // ],
+     ],
   
     /* Folder for test artifacts such as screenshots, videos, traces, etc. */
     // outputDir: 'test-results/',
