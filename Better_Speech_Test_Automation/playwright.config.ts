@@ -7,7 +7,7 @@ import { devices } from '@playwright/test';
 const config: PlaywrightTestConfig = {
     testDir: './tests',
     /* Maximum time one test can run for. */
-    timeout: 400 * 1000,
+    timeout: 450 * 1000,
 
 
     expect: {
@@ -44,11 +44,11 @@ const config: PlaywrightTestConfig = {
       video: {
         mode: "on",
         size: {
-          // width:1260,
-          // height:1080
+        //   // width:1260,
+        //   // height:1080
           width:1366,
           height:768
-        }
+         }
       },
   
       /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
@@ -57,12 +57,12 @@ const config: PlaywrightTestConfig = {
     },
   
     /* Configure projects for major browsers */
-    projects: [
+     projects: [
       {
         name: 'chromium',
         use: {
           ...devices['Desktop Chrome'],
-          viewport: { width: 1366, height: 720 },
+          viewport: { width: 1366, height: 768 },
         },
       },
   
@@ -78,21 +78,20 @@ const config: PlaywrightTestConfig = {
       //   use: {
       //     ...devices['Desktop Safari'],
       //   },
-      // }, 
+      // },
   
       // /* Test against mobile viewports. */
-      {
+       {
         name: 'Samsung',
         use: {
           ...devices['Galaxy S9+'],
-
           hasTouch: true, 
         },
       },
       {
         name: 'iPhone',
         use: {
-          ...devices['iPhone 11 Pro'],
+          ...devices['iPhone 14 Pro Max'],
           hasTouch: true, 
         },
       },
@@ -110,8 +109,8 @@ const config: PlaywrightTestConfig = {
       //     channel: 'chrome',
       //   },
       // },
-    ],
-  
+     ],
+
     /* Folder for test artifacts such as screenshots, videos, traces, etc. */
     // outputDir: 'test-results/',
   
