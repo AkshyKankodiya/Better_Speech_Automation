@@ -24,47 +24,25 @@ class speechtherapy {
         await this.page.goto('/');
         await this.page.waitForTimeout(2000);
     }
-    async Login_button() {
+    async Login_with_Cred() {
         try {
             await this.page.waitForTimeout(2000);
             await this.loginBtn.click();
-        }
-        catch (error) {
-            console.log("Login Button is Not Visible or Clickable", error)
-        }
-    }
-    async fill_Email_Password() {
-        try {
             await this.emailTextB.fill("qabetterspeech+testmemberchild@gmail.com");
             await this.passTextB.fill("ChildQA123");
             await this.userloginBtn.click();
-        }
-        catch (error) {
-            console.log("Wrong Email or Password", error)
-        }
-
-    }
-    async redirect_URL() {
-        try {
             await this.page.waitForTimeout(1000);
             await this.page.goto('/' + 'speech-therapy-near-me');
         }
         catch (error) {
-            console.log("Invalid Redirection URL", error)
-        }
-    }
-    async Size_Address() {
-        try {
-            await this.page.waitForSelector("//span[text()='Location:']//following::p[2]");
-            const elements = await this.page.$$("//span[text()='Location:']//following::p[2]");
-            console.log("Size of Address:", elements.length);
-        } catch (error) {
-            console.log("Addresses are Not Available", error)
+            console.log("Wrong Email and Password", error)
         }
     }
     async Verify_address() {
         try {
+            await this.page.waitForSelector("//span[text()='Location:']//following::p[2]");
             const elements = await this.page.$$("//span[text()='Location:']//following::p[2]");
+            console.log("Size of Address:", elements.length);
             for (const element of elements) {
                 const postalCode = await element.innerText();
                 const regexp = postalCode.match(/([A-Z]{2} \d{5})/);
@@ -80,8 +58,6 @@ class speechtherapy {
         } catch (error) {
             console.log("Postal code does not match", error)
         }
-
-
     }
     async Write_CSV() {
         try {
