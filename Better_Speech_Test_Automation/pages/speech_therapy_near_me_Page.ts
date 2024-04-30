@@ -35,8 +35,6 @@ class speechtherapy {
     }
     async Verify_address() {
 
-        await this.page.waitForTimeout(10000);
-
         await this.page.waitForSelector("//span[text()='Location:']//following::p[2]");
         const elements = await this.page.$$("//span[text()='Location:']//following::p[2]");
         console.log("Size of Address:", elements.length);
