@@ -1,0 +1,14 @@
+{
+
+    "My Child" :"My Child",
+    "Caregiver_First_Name" : "Hello",
+    "Caregiver_Last_Name" : "Tester",
+    "Password" : "123456",
+    "Patient_First_Name" : "Hello",
+    "Patient_Last_Name" : "Tester",
+    "Patient_Date_of_Birth_Year" : "2000",
+    "Phone" : "7894561235",
+    "Patient_Address" : "Texas City, TX, USA",
+    "Language" : "English",
+    "Message" : "All Good" 
+}

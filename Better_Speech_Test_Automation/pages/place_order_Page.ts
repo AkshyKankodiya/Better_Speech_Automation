@@ -94,11 +94,12 @@ class placeorderpage {
         await this.page.waitForTimeout(1000);
     }
     async selectDropDown2() {
-        await this.dropdownCountry.waitFor();
-        await this.dropdownCountry.selectOption({ value: 'United States' });
-        await this.dropdownState.waitFor();
-        await this.dropdownState.selectOption({ value: 'Florida' });
         await this.page.waitForTimeout(1000);
+        await this.dropdownCountry.waitFor();
+        await this.dropdownCountry.selectOption({ value: 'Ireland' });
+        // await this.dropdownState.waitFor();
+        // await this.dropdownState.selectOption({ value: 'Florida' });
+        // await this.page.waitForTimeout(1000);
     }
 
     async Verify_On_ThankYou() {
@@ -146,7 +147,7 @@ class placeorderpage {
         await this.navigate();
         await this.page.waitForTimeout(1000);
         await this.randomEmail_method();
-        await this.selectDropDown();
+        await this.selectDropDown2();
 
         await this.CardnumberFrame.waitFor();
         await this.CardnumberFrame.isEnabled();
@@ -162,7 +163,7 @@ class placeorderpage {
         await this.navigate();
         await this.page.waitForTimeout(1000);
         await this.randomEmail_method();
-        await this.selectDropDown();
+        await this.selectDropDown2();
 
         await this.CardnumberFrame.waitFor();
         await this.CardnumberFrame.isEnabled();
@@ -178,7 +179,7 @@ class placeorderpage {
         await this.navigate();
         await this.page.waitForTimeout(1000);
         await this.randomEmail_method();
-        await this.selectDropDown();
+        await this.selectDropDown2();
 
         await this.CardnumberFrame.waitFor();
         await this.CardnumberFrame.isEnabled();
@@ -194,7 +195,7 @@ class placeorderpage {
         await this.navigate();
         await this.page.waitForTimeout(1000);
         await this.randomEmail_method();
-        await this.selectDropDown();
+        await this.selectDropDown2();
 
         await this.CardnumberFrame.waitFor();
         await this.CardnumberFrame.isEnabled();
@@ -227,7 +228,7 @@ class placeorderpage {
         this.handlePopups();
         await this.page.waitForTimeout(1000);
         await this.randomEmail_method();
-        await this.selectDropDown();
+        await this.selectDropDown2();
         await this.CardnumberFrame.waitFor();
         await this.CardnumberFrame.isEnabled();
         await this.CardnumberFrame.click();
@@ -258,7 +259,7 @@ class placeorderpage {
         await this.navigate();
         await this.page.waitForTimeout(1000);
         await this.randomEmail_method();
-        await this.selectDropDown();
+        await this.selectDropDown2();
         await this.CardnumberFrame.waitFor();
         await this.CardnumberFrame.isEnabled();
         await this.CardnumberFrame.click();
@@ -273,7 +274,7 @@ class placeorderpage {
         await this.navigate();
         await this.page.waitForTimeout(1000);
         await this.randomEmail_method();
-        await this.selectDropDown();
+        await this.selectDropDown2();
         await this.CardnumberFrame.waitFor();
         await this.CardnumberFrame.isEnabled();
         await this.CardnumberFrame.click();
@@ -289,7 +290,7 @@ class placeorderpage {
         await this.navigate();
         await this.page.waitForTimeout(1000);
         await this.randomEmail_method();
-        await this.selectDropDown();
+        await this.selectDropDown2();
         await this.CardnumberFrame.waitFor();
         await this.CardnumberFrame.isEnabled();
         await this.CardnumberFrame.click();
@@ -319,7 +320,7 @@ class placeorderpage {
         await this.navigate();
         await this.page.waitForTimeout(1000);
         await this.randomEmail_method();
-        await this.selectDropDown();
+        await this.selectDropDown2();
         await this.CardnumberFrame.waitFor();
         await this.CardnumberFrame.isEnabled();
         await this.CardnumberFrame.click();
