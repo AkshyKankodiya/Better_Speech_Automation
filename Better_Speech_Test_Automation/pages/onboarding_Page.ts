@@ -95,21 +95,21 @@ class onboardingPage {
       const Answer9 = onboardingTab.locator("(//div[@data-qa='choice-list'])[2]/div",{ hasText : dropdownoption.Question9});
       await Answer9.click();
 
-      const btnOK = onboardingTab.locator("//button[contains(@data-qa,'ok-button-visible')]")
+      const btnOK = onboardingTab.locator("(//span[contains(@class,'ButtonTextWrapper')]//child::span)[2]")
       await btnOK.click();
 
       await this.page.waitForTimeout(1000);
       const Answer10 = onboardingTab.locator("(//div[@data-qa='choice-list'])[2]/div",{ hasText : dropdownoption.Question10});
       await Answer10.click();
 
-      const btnOK1 = onboardingTab.locator("//button[contains(@data-qa,'ok-button-visible')]")
+      const btnOK1 = onboardingTab.locator("(//span[contains(@class,'ButtonTextWrapper')]//child::span)[2]")
       await btnOK1.click();
 
       await this.page.waitForTimeout(1000);
       const Answer11 = onboardingTab.locator("(//div[@data-qa='choice-list'])[2]/div",{ hasText : dropdownoption.Question11});
       await Answer11.click();
 
-      const btnOK2 = onboardingTab.locator("//button[contains(@data-qa,'ok-button-visible')]")
+      const btnOK2 = onboardingTab.locator("(//span[contains(@class,'ButtonTextWrapper')]//child::span)[2]")
       await btnOK2.click();
 
       const btnContinue2 = onboardingTab.locator("//span[text()='Continue']");
@@ -119,7 +119,7 @@ class onboardingPage {
       const Answer12 = onboardingTab.locator("(//div[@data-qa='choice-list'])[1]/div",{ hasText : dropdownoption.Question12});
       await Answer12.click();
 
-      const btnOK3 = onboardingTab.locator("//button[contains(@data-qa,'ok-button-visible')]")
+      const btnOK3 = onboardingTab.locator("(//span[contains(@class,'ButtonTextWrapper')]//child::span)[2]")
       await btnOK3.click();
 
       await this.page.waitForTimeout(1000);
@@ -136,7 +136,7 @@ class onboardingPage {
       const Answer14 = onboardingTab.locator("(//div[@data-qa='choice-list'])[1]/div",{ hasText : dropdownoption.Question14});
       await Answer14.click();
 
-      const btnOK4 = onboardingTab.locator("//button[contains(@data-qa,'ok-button-visible')]")
+      const btnOK4 = onboardingTab.locator("(//span[contains(@class,'ButtonTextWrapper')]//child::span)[2]")
       await btnOK4.click();
 
       await this.page.waitForTimeout(1000);
@@ -163,7 +163,7 @@ class onboardingPage {
       const Answer17 = onboardingTab.locator("(//div[@data-qa='choice-list'])[1]/div",{ hasText : dropdownoption.Question17});
       await Answer17.click();
 
-      const btnOK5 = onboardingTab.locator("//button[contains(@data-qa,'ok-button-visible')]")
+      const btnOK5 = onboardingTab.locator("(//span[contains(@class,'ButtonTextWrapper')]//child::span)[2]")
       await btnOK5.click();
 
       const btnContinue6 = onboardingTab.locator("//span[text()='Continue']");
@@ -173,7 +173,7 @@ class onboardingPage {
       const Answer18 = onboardingTab.locator("//textarea[@placeholder='Type your answer here...']");
       await Answer18.fill(dropdownoption.Question18);
 
-      const btnOK6 = onboardingTab.locator("//button[contains(@data-qa,'ok-button-visible')]")
+      const btnOK6 = onboardingTab.locator("(//span[contains(@class,'ButtonTextWrapper')]//child::span)[2]")
       await btnOK6.click();
 
       const btnContinue7 = onboardingTab.locator("//span[text()='Continue']");
@@ -183,14 +183,14 @@ class onboardingPage {
       const Answer19 = onboardingTab.locator("(//input[@placeholder='Jane'])[1]");
       await Answer19.fill(dropdownoption.Question19);
 
-      const btnOK7 = onboardingTab.locator("//button[contains(@data-qa,'ok-button-visible')]")
+      const btnOK7 = onboardingTab.locator("(//span[contains(@class,'ButtonTextWrapper')]//child::span)[2]")
       await btnOK7.click();
 
       await this.page.waitForTimeout(1000);
       const Answer20 = onboardingTab.locator("(//input[@placeholder='Jane'])[2]");
       await Answer20.fill(dropdownoption.Question20);
 
-      const btnOK8 = onboardingTab.locator("//button[contains(@data-qa,'ok-button-visible')]")
+      const btnOK8 = onboardingTab.locator("(//span[contains(@class,'ButtonTextWrapper')]//child::span)[2]")
       await btnOK8.click();
 
       const btnContinue8 = onboardingTab.locator("//span[text()='Continue']");
