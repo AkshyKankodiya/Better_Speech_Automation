@@ -27,9 +27,12 @@ test.describe.serial('SLP_Dashboard', () => {
         await slp_dashboard.submit_Request_for_near_capacity();
         await slp_dashboard.submit_Request_for_temporary_leave();
 
+        await slp_dashboard.Email_Read();
 
     });
 
 
 });
 // Working on Mobile and Desktop
+//Use Below Command for Authantication gmail and also for token genration 
+//node node_modules/gmail-tester/init.js credentials.json token.json testqa2606@gmail.com
