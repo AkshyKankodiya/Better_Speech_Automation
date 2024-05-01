@@ -43,6 +43,7 @@ class pricingpage {
     async verify_LoginAnd_Get_Better_Speech_Buttons() {
         await this.clickButtonWithout404(this.page, this.LoginBtn);
         await this.page.waitForTimeout(2000);
+        await this.navigate();
         await this.clickButtonWithout404(this.page, this.BettrtSpeechBtn_1);
         await this.switchTab();
 
@@ -55,6 +56,7 @@ class pricingpage {
         await this.switchTab();
         await this.page.waitForTimeout(2000);
         await this.clickButtonWithout404(this.page, this.Get_startBtn_1);
+        await this.navigate();
         await this.page.close();
 
     }
@@ -63,6 +65,7 @@ class pricingpage {
 
         await this.clickButtonWithout404(this.page, this.Apply_Here_Btn_1);
         await this.switchTab();
+        await this.page.waitForTimeout(2000);
         await this.emailTextB.waitFor();
         await this.emailTextB.fill(this.Email)
         await this.page.waitForTimeout(2000);

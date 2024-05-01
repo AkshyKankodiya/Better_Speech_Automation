@@ -47,3 +47,4 @@ test.describe.serial('Pricing_Test_Page_Buttons', () => {
     });
 
 });
+// Working on Mobile and Desktop
