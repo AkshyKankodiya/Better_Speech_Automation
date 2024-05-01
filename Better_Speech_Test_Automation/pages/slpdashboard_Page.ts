@@ -40,6 +40,7 @@ class slpdashboard {
   futureDateFormatted_dig: any;
   isMob: any;
   closeCalander: Locator;
+  Date_Thankyou : Locator;
 
 
 
@@ -72,6 +73,7 @@ class slpdashboard {
     this.submittLeaveBTN = page.locator("//span[contains(text(),'Request status change')]")
     this.verifyElem = page.locator("//span[contains(text(),'Your timezone')]")
     this.closeCalander = page.locator("//div[@class='pBk9_M']")
+    this.Date_Thankyou = page.locator("//span[contains(text(),'Thank you for requesting')]")
     this.today
     this.futureDate_DISABLED_20 
     this.futureDate_DISABLED_19 
@@ -147,6 +149,8 @@ class slpdashboard {
 
   async submit_Request_for_temporary_leave() {
     console.log("\n-------------I'm planning a temporary leave");
+    await this.Date_Thankyou.waitFor();
+    await this.page.reload();
     await this.changeStatusBTN.waitFor();
     await this.changeStatusBTN.click();
     await this.radioimplanningtempleave.waitFor();
@@ -162,7 +166,7 @@ class slpdashboard {
     await this.page.waitForTimeout(1000)
     await this.submittLeaveBTN.waitFor();
     await this.submittLeaveBTN.click();
-    await this.verifyElem.waitFor();
+    await this.Date_Thankyou.waitFor();
     await this.page.waitForTimeout(1000)
 
   }

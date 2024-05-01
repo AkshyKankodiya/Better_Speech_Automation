@@ -94,7 +94,7 @@ class placeorderpage {
         await this.page.waitForTimeout(1000);
     }
     async selectDropDown2() {
-        await this.page.waitForTimeout(1000);
+        await this.page.waitForTimeout(2000);
         await this.dropdownCountry.waitFor();
         await this.dropdownCountry.selectOption({ value: 'Ireland' });
         // await this.dropdownState.waitFor();
@@ -146,6 +146,7 @@ class placeorderpage {
         console.log("\nPlace Order With Visa Card");
         await this.navigate();
         await this.page.waitForTimeout(1000);
+        this.handlePopups();
         await this.randomEmail_method();
         await this.selectDropDown2();
 
@@ -162,6 +163,7 @@ class placeorderpage {
         console.log("\nPlace Order With Mastercard");
         await this.navigate();
         await this.page.waitForTimeout(1000);
+        this.handlePopups();
         await this.randomEmail_method();
         await this.selectDropDown2();
 
@@ -178,6 +180,7 @@ class placeorderpage {
         console.log("\nPlace Order With American Express card");
         await this.navigate();
         await this.page.waitForTimeout(1000);
+        this.handlePopups();
         await this.randomEmail_method();
         await this.selectDropDown2();
 
@@ -194,6 +197,7 @@ class placeorderpage {
         console.log("\nPlace Order With Discover card");
         await this.navigate();
         await this.page.waitForTimeout(1000);
+        this.handlePopups();
         await this.randomEmail_method();
         await this.selectDropDown2();
 
@@ -210,6 +214,7 @@ class placeorderpage {
         console.log("\nInvalid Generic decline Card");
         //await this.navigate();
         await this.page.waitForTimeout(1000);
+        this.handlePopups();
         await this.randomEmail_method();
         await this.page.waitForTimeout(2000);
         await this.selectDropDown2();
@@ -258,6 +263,7 @@ class placeorderpage {
         console.log("\nInvalid Stolen card decline Card");
         await this.navigate();
         await this.page.waitForTimeout(1000);
+        this.handlePopups();
         await this.randomEmail_method();
         await this.selectDropDown2();
         await this.CardnumberFrame.waitFor();
@@ -273,6 +279,7 @@ class placeorderpage {
         console.log("\nInvalid Expired card decline Card");
         await this.navigate();
         await this.page.waitForTimeout(1000);
+        this.handlePopups();
         await this.randomEmail_method();
         await this.selectDropDown2();
         await this.CardnumberFrame.waitFor();
@@ -289,6 +296,7 @@ class placeorderpage {
         console.log("\nInvalid incorrect CVC decline Card");
         await this.navigate();
         await this.page.waitForTimeout(1000);
+        this.handlePopups();
         await this.randomEmail_method();
         await this.selectDropDown2();
         await this.CardnumberFrame.waitFor();
@@ -304,6 +312,7 @@ class placeorderpage {
         console.log("\nInvalid Processing error decline Card");
         await this.navigate();
         await this.page.waitForTimeout(1000);
+        this.handlePopups();
         await this.randomEmail_method();
         await this.selectDropDown2();
         await this.CardnumberFrame.waitFor();
@@ -319,6 +328,7 @@ class placeorderpage {
         console.log("\nInvalid incorrect number decline Card");
         await this.navigate();
         await this.page.waitForTimeout(1000);
+        this.handlePopups();
         await this.randomEmail_method();
         await this.selectDropDown2();
         await this.CardnumberFrame.waitFor();
@@ -334,6 +344,7 @@ class placeorderpage {
         console.log("\nInvalid Exceeding velocity limit decline Card");
         await this.navigate();
         await this.page.waitForTimeout(1000);
+        this.handlePopups();
         await this.randomEmail_method();
         await this.selectDropDown2();
         await this.CardnumberFrame.waitFor();

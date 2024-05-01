@@ -130,6 +130,7 @@ class submitpage {
         await this.page.waitForTimeout(2000);
     }
     async selectDropDown2() {
+        await this.page.waitForTimeout(2000);
         await this.dropdownCountry.waitFor();
         await this.dropdownCountry.selectOption({ value: 'Ireland' });
         // await this.dropdownState.waitFor();
@@ -168,6 +169,7 @@ class submitpage {
         await this.randomEmail_method();
         await this.page.waitForTimeout(2000);
         await this.selectDropDown2();
+        await this.page.waitForTimeout(1000);
         await this.CardnumberFrame.waitFor();
         await this.CardnumberFrame.isEnabled();
         await this.CardnumberFrame.click();
@@ -177,7 +179,7 @@ class submitpage {
         this.handlePopups();
     }
     async Filling_Form(value: String) {
-
+        this.handlePopups();
         if (await value === form_Data['My Child']) {
             console.log('My Child Button Is Selected')
             await this.myChildBTN.click();
