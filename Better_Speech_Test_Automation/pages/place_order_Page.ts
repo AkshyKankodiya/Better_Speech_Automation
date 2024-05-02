@@ -96,7 +96,7 @@ class placeorderpage {
     async selectDropDown2() {
         await this.page.waitForTimeout(2000);
         await this.dropdownCountry.waitFor();
-        await this.dropdownCountry.selectOption({ value: 'Ireland' });
+        await this.dropdownCountry.selectOption({ value: 'India' });
         // await this.dropdownState.waitFor();
         // await this.dropdownState.selectOption({ value: 'Florida' });
         // await this.page.waitForTimeout(1000);
