@@ -48,6 +48,8 @@ class submitpage {
     yearText: any;
     ActualElemnt1: Locator;
     Expected_Thank_you: string;
+    myselfBTN: Locator;
+    another_AdultBTN: Locator;
 
 
     constructor(page: Page) {
@@ -92,6 +94,8 @@ class submitpage {
         this.Next_step2Btn = page.locator('//span[contains(text(),"Next to step 2 >>")]')
         this.ActualElemnt1 = page.locator('//span[contains(text(),"Step 2")]')
         this.Expected_Thank_you = "Step 2";
+        this.myselfBTN = page.locator('//span[contains(text(),"Myself")]')
+        this.another_AdultBTN = page.locator('//span[contains(text(),"Another Adult")]')
     }
 
     async generateRandomEmail(): Promise<string> {
@@ -178,9 +182,10 @@ class submitpage {
         await this.Verify_On_ThankYou();
         this.handlePopups();
     }
-    async Filling_Form(value: String) {
-        this.handlePopups();
-        if (await value === form_Data['My Child']) {
+    async signup_as_my_child() {
+            this.handlePopups();
+            this.place_Order_With_Valid_Visa();
+            this.handlePopups();
             console.log('My Child Button Is Selected')
             await this.myChildBTN.click();
             await this.caregiver_First_NameTextB.waitFor();
@@ -217,8 +222,85 @@ class submitpage {
 
         }
 
+        async signup_as_my_self() {
+        
+            this.handlePopups();
+            this.place_Order_With_Valid_Visa();
+            this.handlePopups();
+            console.log('Myself Button Is Selected')
+            await this.myselfBTN.click();
+            await this.passwordTextB.waitFor();
+            await this.passwordTextB.fill(form_Data.Password)
+            await this.Confirm_passwordTextB.fill(form_Data.Password)
+            await this.patient_First_NameTextB.waitFor();
+            await this.patient_First_NameTextB.fill(form_Data.Patient_First_Name)
+            await this.patient_Last_NameTextB.fill(form_Data.Patient_Last_Name)
+            await this.CalanderTap.waitFor();
+            await this.CalanderTap.click();
+            await this.CurruntYear.waitFor();
+            await this.CurruntYear.click();
+            await this.Select_Year();
+            await this.Dateselect.waitFor();
+            await this.Dateselect.click();
+            await this.Mibile_TextB.waitFor();
+            await this.Mibile_TextB.fill(form_Data.Phone);
+            await this.address_TextB.waitFor();
+            await this.address_TextB.fill(form_Data.Patient_Address);
+            await this.page.keyboard.press('Tab');
+            await this.Message_TextB.waitFor();
+            await this.Message_TextB.fill(form_Data.Message)
+            await this.Next_step2Btn.waitFor();
+            await this.Next_step2Btn.click();
+            await this.ActualElemnt1.waitFor();
+            const ActualMessage = await this.ActualElemnt1.textContent();
+            //expect(ActualMessage).toBe(this.Expected_Thank_you);
+            console.log(ActualMessage)
 
-    }
+
+        }
+
+        async signup_as_another_adult() {
+        
+            this.handlePopups();
+            this.place_Order_With_Valid_Visa();
+            this.handlePopups();
+            console.log('Another Adult Button Is Selected')
+            await this.another_AdultBTN.click();
+            await this.caregiver_First_NameTextB.waitFor();
+            await this.caregiver_First_NameTextB.fill(form_Data.Caregiver_First_Name)
+            await this.caregiver_Last_NametextB.fill(form_Data.Caregiver_Last_Name)
+            await this.passwordTextB.waitFor();
+            await this.passwordTextB.fill(form_Data.Password)
+            await this.Confirm_passwordTextB.fill(form_Data.Password)
+            await this.patient_First_NameTextB.waitFor();
+            await this.patient_First_NameTextB.fill(form_Data.Patient_First_Name)
+            await this.patient_Last_NameTextB.fill(form_Data.Patient_Last_Name)
+            await this.CalanderTap.waitFor();
+            await this.CalanderTap.click();
+            await this.CurruntYear.waitFor();
+            await this.CurruntYear.click();
+            await this.Select_Year();
+            await this.Dateselect.waitFor();
+            await this.Dateselect.click();
+            await this.Mibile_TextB.waitFor();
+            await this.Mibile_TextB.fill(form_Data.Phone);
+            await this.address_TextB.waitFor();
+            await this.address_TextB.fill(form_Data.Patient_Address);
+            await this.page.keyboard.press('Tab');
+            await this.Message_TextB.waitFor();
+            await this.Message_TextB.fill(form_Data.Message)
+            await this.Next_step2Btn.waitFor();
+            await this.Next_step2Btn.click();
+            await this.ActualElemnt1.waitFor();
+            const ActualMessage = await this.ActualElemnt1.textContent();
+            //expect(ActualMessage).toBe(this.Expected_Thank_you);
+            console.log(ActualMessage)
+
+        }
+
+
+
+    
 
     async handlePopups() {
         if (await this.popForNEW1.isVisible() || await this.popForNEW6.isVisible()) {
