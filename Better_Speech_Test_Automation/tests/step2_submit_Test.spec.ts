@@ -14,10 +14,18 @@ test.describe.serial('Step2_Submit', () => {
         await submit_page.navigate();
 
     });
-    test('Testcase_001_Place_Order_Fill_Form', async ({ page, context }) => {
-        await submit_page.place_Order_With_Valid_Visa();
-        await submit_page.Filling_Form(form_Data['My Child']);
+    test('Testcase_001_Signup_as_my_child', async ({ page, context }) => {
+        await submit_page.signup_as_my_child();
     });
+
+    test('Testcase_002_Signup_as_my_self', async ({ page, context }) => {
+        await submit_page.signup_as_my_self();
+    });
+
+    test('Testcase_003_Signup_as_another_adult', async ({ page, context }) => {
+        await submit_page.signup_as_another_adult();
+    });
+
 
 
 });
