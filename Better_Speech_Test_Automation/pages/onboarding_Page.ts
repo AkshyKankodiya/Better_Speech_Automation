@@ -156,7 +156,7 @@ class onboardingPage {
       // const btnOK11 = onboardingTab.locator("(//span[text()='OK'])[1]")
       // await btnOK11.click();
 
-      const btnContinue5 = onboardingTab.locator("//span[text()='Continue']");
+      const btnContinue5 = onboardingTab.locator("(//span[text()='Continue'])[1]");
       await btnContinue5.click();
 
       await this.page.waitForTimeout(1000);
@@ -221,11 +221,12 @@ class onboardingPage {
       expect(this.actualEmail).toContain(emailValue1);
       console.log('\nActual Email:', this.actualEmail)
       console.log('Expected Email:', emailValue1)
-
+      
       const LinkText = await onboardingTab.locator("//span[contains(text(),'Not ready or can')]")
       const LinkValue = await LinkText.textContent();
       console.log("\nLink Text:", LinkValue);
       await this.page.waitForTimeout(4000);
+      await LinkText.waitFor();
       await LinkText.click();
       
       const stillNot = onboardingTab.locator("//a[text()='Still not ready']")
@@ -236,7 +237,7 @@ class onboardingPage {
       await this.page.waitForTimeout(1000);
       await checkEligibility.isEnabled();
       await this.page.waitForTimeout(1000);
-      await onboardingTab.goto('https://www.betterspeech.com/financialaid');
+      await onboardingTab.goto('/'+'financialaid');
 
       const popForNEW1 = onboardingTab.locator('//*[@data-block-level-container="PopupContainer"]')
       const popForNEW6 = onboardingTab.locator('//*[@class="betterspeech-exit-closeright-contaier"]')
@@ -258,7 +259,7 @@ class onboardingPage {
       const randomOption = options[randomIndex];
       await randomOption.click();
 
-      await this.page.waitForTimeout(1000);
+      await this.page.waitForTimeout(3000);
       const radioButtons2 = onboardingTab.locator('//div[contains(text(),"status of your spouse?")]//following::div[1]//child::label');
       const options2 = await radioButtons2.all();
       const randomIndex2 = Math.floor(Math.random() * options2.length);
@@ -267,7 +268,7 @@ class onboardingPage {
 
       handlePopups();
 
-      await this.page.waitForTimeout(1000);
+      await this.page.waitForTimeout(3000);
       const sAnswer3 = onboardingTab.locator("//input[@id='input_comp-kvlozmsg']");
       await sAnswer3.click();
       await sAnswer3.fill("10");

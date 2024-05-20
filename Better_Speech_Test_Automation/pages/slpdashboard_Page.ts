@@ -152,6 +152,7 @@ class slpdashboard {
     await this.Date_Thankyou.waitFor();
     await this.page.reload();
     await this.changeStatusBTN.waitFor();
+    await this.page.waitForTimeout(5000)
     await this.changeStatusBTN.click();
     await this.radioimplanningtempleave.waitFor();
     await this.radioimplanningtempleave.click();

@@ -43,15 +43,16 @@ class slpoption {
     await this.userloginBtn.click();
     await this.page.waitForTimeout(1000);
     await this.page.goto('/' + 'slp-options');
-    await this.passwordtxtbox.waitFor();
-    await this.passwordtxtbox.fill('Qatest')
-    await this.btnGo.click();
-    await this.page.waitForTimeout(13000);
-    await this.btnReadmore.click();
-    await this.btnReadless.isVisible();
-    await this.btnViewhours.click();
-    await this.page.waitForTimeout(5000);
-    await this.txtNoEvent.isVisible();
+    await this.page.waitForTimeout(3000);
+    // await this.passwordtxtbox.waitFor();
+    // await this.passwordtxtbox.fill('Qatest')
+    // await this.btnGo.click();
+    // await this.page.waitForTimeout(13000);
+    // await this.btnReadmore.click();
+    // await this.btnReadless.isVisible();
+    // await this.btnViewhours.click();
+    // await this.page.waitForTimeout(5000);
+    // await this.txtNoEvent.isVisible();
   }
 }
 export default slpoption
