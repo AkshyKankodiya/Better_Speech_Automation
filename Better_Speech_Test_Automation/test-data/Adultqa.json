@@ -1,0 +1,81 @@
+{
+    "age": "18",
+    "state": "Alaska",
+    "questions1": [
+        "What is your age?",
+        "We understand that you are looking for speech therapy for",
+        "Speech therapy in adults is common",
+        "What is your main speech issue"
+    ],
+    "questions2": [
+        "Which pronunciation issues do you",
+        "Which communication areas need improvement?",
+        "How would training in accent reduction be most beneficial for you?",
+        "What are the voice issues you face?",
+        "What are the challenges in your stuttering/fluency?",
+        "What challenges are you facing with cognitive loss?",
+        "What areas in Gender Affirming Voice Therapy you would like to focus on?",
+        "Specifically, what concern would you like to focus on?",
+        "If this concern improved significantly, what would be the impact on your life?"
+    ],
+    "questions3": [
+        "If your pronunciation improved significantly, what would be the impact on your life?",
+        "If your communication was improved significantly, what would be the impact on your life?",
+        "If your accent was reduced significantly, what would be the impact on your life?",
+        "If your voice improved significantly, what would be the impact on your life?",
+        "If your stuttering reduced significantly, what would be the impact on your life?",
+        "If your speech improved significantly, what would be the impact on your life?",
+        "If your voice improved significantly, what would be the impact on your life?",
+        "If this concern improved significantly, what would be the impact on your life?"
+    ],
+    "questions4": [
+        "Has a doctor provided a medical diagnosis for this issue?"
+    ],
+    "questions6": [
+        "Doctors refer regularly to Better Speech when diagnosing a speech impediment",
+        "Have you previously undergone speech therapy before?",
+        "For updates on your matched therapist, enter your email below",
+        "Once a week, on a Zoom call (similar to this...), your therapist will provide speech guidance",
+        "Which of the following are challenging for you? Choose all that apply"
+    ],
+    "questions5": [
+        "Doctors refer regularly to Better Speech when diagnosing a speech impediment",
+        "Have you previously undergone speech therapy before?",
+        "For updates on your matched therapist, enter your email below",
+        "Once a week, on a Zoom call (similar to this...), your therapist will provide speech guidance",
+        "Which of the issues below apply to you? Check all that apply",
+        "Are you currently under the care of any of the following specialists? Check all that apply",
+        "Do you have any concerns with the following? Choose all that apply",
+        "Which of the following are challenging for you? Choose all that apply",
+        "How would you pay for therapy?",
+        "🥳 You can get fully reimbursed by your insurance",
+        "General background. Please check all that apply:",
+        "Better Speech has 250+ licensed therapists, each with ~10 years of experience",
+        "What is your State (USA) or Country (International)",
+        "What are convenient times for you to meet your therapist?",
+        "You can Cancel or Pause therapy (for travel/vacation) 🏖️ online any time",
+        "😃 Fantastic! We understand your needs",
+        "What is your name?",
+        "Better Speech was listed #1 by Forbes as the Best Online Speech Therapy provider"
+    ],
+    "questions7": [
+        "🥳 You can get fully reimbursed by your insurance",
+        "👍 Better Speech is the most affordable provider, 50% lower than most in-person clinics",
+        "Our Financial Aid can significantly lighten your therapy costs"
+    ],
+    "questions8": [
+        "How would you pay for therapy?",
+        "General background. Please check all that apply:"
+    ],
+    "questions9": [
+        "General background. Please check all that apply:",
+        "Better Speech has 250+ licensed therapists, each with ~10 years of experience",
+        "What is your State (USA) or Country (International)?",
+        "What are convenient times for you to meet your therapist?",
+        "You can Cancel or Pause therapy (for travel/vacation) 🏖️ online any time",
+        "😃 Fantastic! We understand your needs",
+        "What is your name?",
+        "Better Speech was listed #1 by Forbes as the Best Online Speech Therapy provider",
+        "You're almost done...😌"
+    ]
+}
