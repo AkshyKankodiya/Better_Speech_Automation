@@ -62,7 +62,11 @@ const config: PlaywrightTestConfig = {
         name: 'chromium',
         use: {
           ...devices['Desktop Chrome'],
-          viewport: { width: 1366, height: 768 },
+          launchOptions : {
+            args : ['--start-maximized']
+          },
+          deviceScaleFactor : undefined,
+          viewport: null,
         },
       },
   
