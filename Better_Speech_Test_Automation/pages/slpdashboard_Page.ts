@@ -1,4 +1,7 @@
 import { Page, Locator, Keyboard, test, expect, PlaywrightTestConfig, chromium } from '@playwright/test'
+import { get_messages } from "gmail-tester";
+import { relative } from 'path';
+const cheerio = import("cheerio");
 
 
 class slpdashboard {
@@ -41,10 +44,6 @@ class slpdashboard {
   isMob: any;
   closeCalander: Locator;
   Date_Thankyou : Locator;
-
-
-
-
 
 
 
@@ -251,8 +250,6 @@ class slpdashboard {
     } while (enabledDateCount < 3);
   }
 
-
-
   async check_Disabled_Dates_in_Month(page: Page) {
     let anyDateEnabled = false;
     
@@ -281,7 +278,42 @@ class slpdashboard {
 
     } while (!anyDateEnabled);
   }
-
-
+  async Email_Read(){
+    await mailHelper.readEmail(this.page,
+      "tqa8769@gmail.com",
+      "testqa2606@gmail.com",
+      // "gmail api"
+  );
+  }
+  
 }
 export default slpdashboard;
+
+export const mailHelper = {
+  async messageChecker(fromEmail: string, toEmail: string) {
+      const email = await get_messages(
+          relative(__dirname, "Better_Speech_Test_Automation/credentials.json"),
+          relative(__dirname, "Better_Speech_Test_Automation/token.json"),
+          {
+              from: fromEmail,
+              to: toEmail,
+              include_body: true,
+          }
+      );
+     
+      return email;
+  },
+
+  async readEmail(page: Page, senderEmail: string, receiverEmail: string): Promise<string> {
+      let emails = await mailHelper.messageChecker(senderEmail, receiverEmail);
+          console.log(`Polling mail from: ${senderEmail}...`);
+          await page.waitForTimeout(5000);
+      // console.log(emails[1].subject)
+      const emtest = emails[0].subject
+      console.log(emtest)
+      console.log(emails[0].body?.text)
+      return emails[0].body?.text as string
+      
+  },
+
+};
