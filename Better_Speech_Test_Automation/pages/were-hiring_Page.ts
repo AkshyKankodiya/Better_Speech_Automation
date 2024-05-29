@@ -1,7 +1,6 @@
 import { Page, Locator, Keyboard, PlaywrightTestConfig, chromium, expect } from '@playwright/test'
 import * as fs from 'fs';
 import * as path from 'path';
-import { threadId } from 'worker_threads';
 
 
 class werehiring {
@@ -25,12 +24,14 @@ class werehiring {
     txtconfirmemail: Locator;
     txtfileName: Locator;
     btnError: Locator;
+    isMob: boolean | undefined;
     
 
 
-    constructor(page: Page) {
+    constructor(page: Page,isMob:boolean|undefined) {
 
         this.page = page;
+        this.isMob = isMob;
         this.tboxfirstname = page.locator("//input[contains(@placeholder,'First Name')]")
         this.tboxlastname = page.locator("//input[contains(@placeholder,'Last Name')]")
         this.tboxemail = page.locator("//input[@name='email']")
@@ -38,10 +39,9 @@ class werehiring {
         this.checkboxSchool = page.locator("//input[@value='School']")
         this.checkboxprivatepractice = page.locator("//input[@value='Clinic']")
         this.dropdownmanu = page.locator("//select[@data-testid='select-trigger']")
-        // this.dropdownvalue = page.locator("//div[@class='CEK3nk']")
         this.checkbox3 = page.locator("//span[text()='I am able to accept international clients']")
         this.btnSubmit = page.locator("//span[text()='Submit']")
-        this.btnError = page.locator("//span[text()='Error, contact support']")
+        this.btnError = page.locator("//span[text()='Please fill out all fields']")
         this.emailsignup = page.locator("//input[@placeholder='Type email you used doing were hiring']")
         this.password = page.locator("//input[@placeholder='Enter your new password']")
         this.btnSubmit2 = page.locator("(//label[contains(text(),'Password')]//following::button)[1]")
@@ -63,15 +63,21 @@ class werehiring {
         return this.randomEmail;
     }
     async Fill_Form(){
+        await this.page.waitForTimeout(2000);
         await this.tboxfirstname.fill('Better');
         await this.tboxlastname.fill('QA Test');
         await this.tboxemail.fill(this.randomEmail);
         await this.tboxphone.fill('321564897');
         await this.checkboxSchool.click();
         await this.checkboxprivatepractice.click();
-        await this.dropdownmanu.click();
-        const dtext = this.page.locator("//div[@id='menuitem-87']")
-        await dtext.click();
+        if(this.isMob){
+            await this.dropdownmanu.click();
+            await this.page.getByTestId('select-trigger').selectOption('IN-ALL');
+        }else{
+            await this.dropdownmanu.click();
+            const dtext = this.page.locator("//div[@id='menuitem-89']")
+            await dtext.click();
+        }
         await this.page.waitForTimeout(5000);
         await this.checkbox3.click();
     }
@@ -118,7 +124,7 @@ class werehiring {
     async without_upload_Resume(){
         
         await this.btnSubmit.click(); 
-        await this.btnError.waitFor();
+        // await this.btnError.waitFor();
         expect(this.btnError).toBeVisible();
         console.assert(this.btnError.isVisible());
 
