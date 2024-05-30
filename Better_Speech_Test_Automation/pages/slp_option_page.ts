@@ -1,6 +1,6 @@
 import { Page, Locator, Keyboard, expect, PlaywrightTestConfig, chromium } from '@playwright/test'
 
-class slpoption {
+class SlpOption {
 
   page: Page;
   loginBtn: Locator;
@@ -35,7 +35,7 @@ class slpoption {
     await this.page.waitForTimeout(2000);
 
   }
-  async Login_With_cread() {
+  async loginWithCred() {
     await this.page.waitForTimeout(2000);
     await this.loginBtn.click();
     await this.emailTextB.fill("qabetterspeech+testmemberchild@gmail.com");
@@ -55,4 +55,4 @@ class slpoption {
     // await this.txtNoEvent.isVisible();
   }
 }
-export default slpoption
+export default SlpOption

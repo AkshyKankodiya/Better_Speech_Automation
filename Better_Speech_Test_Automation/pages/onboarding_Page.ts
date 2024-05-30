@@ -2,7 +2,7 @@ import { Page, Locator, Keyboard, expect, PlaywrightTestConfig, chromium } from 
 import dropdownoption from '../../Better_Speech_Test_Automation/form_que_ans.json';
 
 
-class onboardingPage {
+class OnBoardingPage {
   Email: any;
   Password: any;
 
@@ -398,4 +398,4 @@ class onboardingPage {
     }
   }
 }
-export default onboardingPage;
+export default OnBoardingPage;

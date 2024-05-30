@@ -1,7 +1,7 @@
 import { Page, Locator, Keyboard, expect, PlaywrightTestConfig, chromium } from '@playwright/test'
 
 
-class pricingpage {
+class PricingPage {
     page: Page;
     randomUrl: string;
     BettrtSpeechBtn_1: Locator;
@@ -128,4 +128,4 @@ class pricingpage {
     }
 
 
-} export default pricingpage
+} export default PricingPage

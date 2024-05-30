@@ -16,6 +16,6 @@ test.describe.serial('slpoption_page', () => {
     test('Testcase_001_Check Two Buttons on SLP option', async ({ page, context }) => {
         await allure.step("Step_001_Verify Read more and View Available Hours are works", async () => {
         });
-        await slpoption_page.Login_With_cread();
+        await slpoption_page.loginWithCred();
     });
 });

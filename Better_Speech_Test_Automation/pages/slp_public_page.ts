@@ -1,6 +1,6 @@
 import { Page, Locator, Keyboard, expect, PlaywrightTestConfig, chromium } from '@playwright/test'
 
-class slppublic {
+class SlpPublic {
 
   page: Page;
   emailTextB: Locator;
@@ -81,7 +81,7 @@ class slppublic {
     await this.profileimge.waitFor();
 
   }
-  async verify_elem_without_Login() {
+  async verify_Elem_Without_Login() {
     await this.page.waitForTimeout(1000);
 
     await this.verify_Element(this.page, this.profileimge, "Profile Image");
@@ -104,7 +104,7 @@ class slppublic {
 
   }
 
-  async verify_elem_with_Login() {
+  async verify_Elem_With_Login() {
     await this.navigate();
     await this.page.waitForTimeout(3000);
     await this.btnloginOption.waitFor();
@@ -188,4 +188,4 @@ class slppublic {
 
 
 }
-export default slppublic
+export default SlpPublic
