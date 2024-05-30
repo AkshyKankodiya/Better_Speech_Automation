@@ -19,7 +19,7 @@ test.describe.serial('Adult_Test', () => {
 
         await allure.step("Step_001_", async () => {
         });
-        await Adult_page.test_adult_first_question();
+        await Adult_page.test_Adult_First_Question();
 
 
     });
@@ -30,7 +30,7 @@ test.describe.serial('Adult_Test', () => {
 
         await allure.step("Step_001_", async () => {
         });
-        await Adult_page.test_adult_Verification();
+        await Adult_page.test_Adult_Verification();
 
 
     });
@@ -39,7 +39,7 @@ test.describe.serial('Adult_Test', () => {
 
         await allure.step("Step_001_", async () => {
         });
-        await Adult_page.test_how_to_pay_options2();
+        await Adult_page.test_How_To_Pay_Options2();
 
 
 
@@ -49,7 +49,7 @@ test.describe.serial('Adult_Test', () => {
 
         await allure.step("Step_001_", async () => {
         });
-        await Adult_page.test_adult_With_email();
+        await Adult_page.test_Adult_With_Email();
 
 
 

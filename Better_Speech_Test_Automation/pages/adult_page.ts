@@ -1,5 +1,4 @@
 import { Page, Locator, Keyboard, expect, chromium, PlaywrightTestConfig } from '@playwright/test'
-import qustionfile from '../test-data/qustionall.json'
 import newJson from '../test-data/Adultqa.json'
 import * as fs from 'fs';
 import { constants } from 'buffer';
@@ -15,7 +14,7 @@ const jsonValue7: string[] = newJson.questions7;
 const jsonValue8: string[] = newJson.questions8;
 const jsonValue9: string[] = newJson.questions9;
 
-class adultpage {
+class AdultPage {
   page: Page;
   fristQ: Locator;
   AdultBtn: Locator;
@@ -24,21 +23,21 @@ class adultpage {
   dropdownqe: Locator;
   yourmother: Locator;
   thankyouQA: Locator;
-  qastionAll: string;
+  questionAll: string;
   selectage: Locator;
   continueBtn: Locator;
-  qastionAll2: string;
+  questionAll2: string;
   allquestionsAdult: Locator;
   FirstRadioAdult: Locator;
   firstCheckOption: Locator;
   btnContinue: Locator;
-  qastionAll3: any;
-  qastionAll4: any;
+  questionAll3: any;
+  questionAll4: any;
   secondRadioAdult: Locator;
-  qastionAll6: any;
-  qastionAll7: any;
+  questionAll6: any;
+  questionAll7: any;
   paymentPageElm: Locator;
-  qastionAll9: any;
+  questionAll9: any;
   EmailTextB: Locator;
   labelTexth2: Locator;
 
@@ -52,8 +51,8 @@ class adultpage {
     this.dropdownqe = page.locator("//div[@id='comp-lvaxcrxk']/label")
     this.thankyouQA = page.locator("(//h2[contains(@class,'font')]//child::span)[3]")
     this.yourmother = page.locator("//div[text()='your mother']")
-    this.qastionAll
-    this.qastionAll2
+    this.questionAll
+    this.questionAll2
     this.selectage = page.locator("//select [@data-testid='select-trigger']")
     this.continueBtn = page.locator("//span[text()='Continue']")
     this.allquestionsAdult = page.locator("//div[@data-testid='label']")
@@ -61,11 +60,11 @@ class adultpage {
     this.secondRadioAdult = page.locator("(//input[@type='radio']/following::div[@data-testid='label'])[2]")
     this.firstCheckOption = page.locator("(//span[@class='eW1tpy'])[1]")
     this.btnContinue = page.locator("//span[text()='Continue']")
-    this.qastionAll3
-    this.qastionAll4
-    this.qastionAll6
-    this.qastionAll7
-    this.qastionAll9
+    this.questionAll3
+    this.questionAll4
+    this.questionAll6
+    this.questionAll7
+    this.questionAll9
     this.paymentPageElm = page.locator("//span[text()='Apply for financial aid']")
     this.EmailTextB = page.locator("//input[@name='email']")
     this.labelTexth2 = page.locator("//label[contains(@class,'psSgWb')]")
@@ -80,8 +79,8 @@ class adultpage {
 
   }
 
-  async test_adult_first_question() {
-    await this.AdultBtn.waitFor();
+  async test_Adult_First_Question() {
+    await this.page.waitForTimeout(2000)
     await this.AdultBtn.click();
     await this.myself.waitFor();
     await this.page.waitForTimeout(2000)
@@ -107,9 +106,9 @@ class adultpage {
         let isMatchFound = false;
         for (let j = 0; j < jsonValue.length; j++) {
           await this.get_current_question();
-          //console.log(this.qastionAll)
-          if (this.qastionAll.startsWith(jsonValue[j])) {
-            console.log("\nMatch found for option:", counter + 1, this.qastionAll);
+          //console.log(this.questionAll)
+          if (this.questionAll.startsWith(jsonValue[j])) {
+            console.log("\nMatch found for option:", counter + 1, this.questionAll);
             await this.navigate();
             await this.page.waitForTimeout(2000);
             await this.AdultBtn.click();
@@ -121,8 +120,8 @@ class adultpage {
         }
         if (!isMatchFound) {
           // No match found for this element
-          unmatchedElements.push(this.qastionAll); // Store the unmatched element
-          console.error("\nNo match found for option:", counter + 1, this.qastionAll);
+          unmatchedElements.push(this.questionAll); // Store the unmatched element
+          console.error("\nNo match found for option:", counter + 1, this.questionAll);
           await this.navigate();
           await this.page.waitForTimeout(2000);
           await this.AdultBtn.click();
@@ -144,7 +143,7 @@ class adultpage {
     }
 
   }
-  async test_adult2() {
+  async test_Adult2() {
     let unmatchedElements2: string[] = [];
     try {
       await this.AdultBtn.waitFor();
@@ -176,8 +175,8 @@ class adultpage {
       let isMatchFound = false;
       for (let j = 0; j < jsonValue.length; j++) {
         await this.get_current_question();
-        if (this.qastionAll.startsWith(jsonValue[j])) {
-          // console.log(" Match", this.qastionAll, jsonValue[j]);
+        if (this.questionAll.startsWith(jsonValue[j])) {
+          // console.log(" Match", this.questionAll, jsonValue[j]);
           await this.continueBtn.click();
           await this.page.waitForTimeout(3000);
           isMatchFound = true;
@@ -187,15 +186,15 @@ class adultpage {
       }
       for (let j = 0; j < jsonValue.length; j++) {
         await this.get_current_question();
-        if (this.qastionAll.startsWith(jsonValue[j])) {
-          // console.log(" Match on Main Qustions", this.qastionAll);
+        if (this.questionAll.startsWith(jsonValue[j])) {
+          // console.log(" Match on Main Qustions", this.questionAll);
         }
       }
 
       if (!isMatchFound) {
         // No match found for this element
-        unmatchedElements2.push(this.qastionAll); // Store the unmatched element
-        console.error("\nNo match found for option:", this.qastionAll);
+        unmatchedElements2.push(this.questionAll); // Store the unmatched element
+        console.error("\nNo match found for option:", this.questionAll);
       }
     } catch (error) {
       console.error("Error clicking element:", error);
@@ -206,8 +205,8 @@ class adultpage {
 
     }
   }
-  async test_adult_Verification() {
-    await this.test_adult2();
+  async test_Adult_Verification() {
+    await this.test_Adult2();
     await this.page.waitForTimeout(3000);
     let unmatchedElements: string[] = [];
     let unmatchedElements2: string[] = [];
@@ -219,7 +218,7 @@ class adultpage {
         await this.page.waitForTimeout(2000)
         while (await element.isDisabled()) {
           await this.navigate();
-          await this.test_adult2();
+          await this.test_Adult2();
           await element.waitFor();
         }
         await element.waitFor();
@@ -232,25 +231,25 @@ class adultpage {
         for (let k = 0; k < jsonValue2.length; k++) {
           await this.page.waitForTimeout(3000);
           await this.get_current_question2();
-          if (this.qastionAll2.startsWith(jsonValue2[k])) {
-            console.log("Match found for option:", counter + 1, this.qastionAll2);
+          if (this.questionAll2.startsWith(jsonValue2[k])) {
+            console.log("Match found for option:", counter + 1, this.questionAll2);
             isMatchFound = true;
             await this.Select_first_option();
             await this.page.waitForTimeout(3000);
             await this.get_current_Wait();
             for (let m = 0; m < jsonValue3.length; m++) {
               await this.get_current_question3();
-              if (this.qastionAll3.startsWith(jsonValue3[m])) {
-                console.log("\nMatch found for sub option:", counter + 1, this.qastionAll3);
+              if (this.questionAll3.startsWith(jsonValue3[m])) {
+                console.log("\nMatch found for sub option:", counter + 1, this.questionAll3);
                 isMatchFound2 = true;
                 await this.Select_first_option();
                 await this.page.waitForTimeout(3000);
                 for (let s = 0; s < jsonValue4.length; s++) {
                   await this.get_current_question4();
-                  if (this.qastionAll4.startsWith(jsonValue4[s])) {
-                    console.log("\nMatch final ", counter + 1, this.qastionAll4);
+                  if (this.questionAll4.startsWith(jsonValue4[s])) {
+                    console.log("\nMatch final ", counter + 1, this.questionAll4);
                     await this.navigate();
-                    await this.test_adult2();
+                    await this.test_Adult2();
                     await element.waitFor();
                     //await this.page.waitForTimeout(2000)
                     isMatchFound3 = true; // Set flag if a match is found
@@ -264,26 +263,26 @@ class adultpage {
 
         }
         if (!isMatchFound) {
-          unmatchedElements.push(this.qastionAll2);
-          console.error("\nNo match found for option:", counter + 1, this.qastionAll2);
+          unmatchedElements.push(this.questionAll2);
+          console.error("\nNo match found for option:", counter + 1, this.questionAll2);
           await this.navigate();
-          await this.test_adult2();
+          await this.test_Adult2();
           await element.waitFor();
           await this.page.waitForTimeout(3000);
         }
         if (!isMatchFound2) {
-          unmatchedElements2.push(this.qastionAll3);
-          console.error("\nNo match found for Sub option:", counter + 1, this.qastionAll3);
+          unmatchedElements2.push(this.questionAll3);
+          console.error("\nNo match found for Sub option:", counter + 1, this.questionAll3);
           await this.navigate();
-          await this.test_adult2();
+          await this.test_Adult2();
           await element.waitFor();
           await this.page.waitForTimeout(2000);
         }
         if (!isMatchFound3) {
-          unmatchedElements3.push(this.qastionAll4);
-          console.error("\nNo match found Final", counter + 1, this.qastionAll4);
+          unmatchedElements3.push(this.questionAll4);
+          console.error("\nNo match found Final", counter + 1, this.questionAll4);
           await this.navigate();
-          await this.test_adult2();
+          await this.test_Adult2();
           await element.waitFor();
           await this.page.waitForTimeout(2000);
         }
@@ -308,7 +307,7 @@ class adultpage {
   }
 
   async test_how_to_pay_options() {
-    await this.test_adult2();
+    await this.test_Adult2();
     await this.page.waitForTimeout(1000);
     await this.secondRadioAdult.waitFor();
     await this.secondRadioAdult.click();
@@ -328,17 +327,17 @@ class adultpage {
       for (let h = 0; h < jsonValue6.length; h++) {
         isMatchFound7 = false;
         await this.get_current_question4();
-        if (this.qastionAll4.startsWith(jsonValue6[h])) {
-          console.log("\nMatch ", this.qastionAll4);
+        if (this.questionAll4.startsWith(jsonValue6[h])) {
+          console.log("\nMatch ", this.questionAll4);
           await this.Select_first_and_continue();
           await this.page.waitForTimeout(3000);
           isMatchFound7 = true;
         }
         if (!isMatchFound7) {
-          unmatchedElements5.push(this.qastionAll4);
+          unmatchedElements5.push(this.questionAll4);
           await this.Select_first_and_continue();
           await this.page.waitForTimeout(3000);
-          console.error("\nNo match found for option:", this.qastionAll4);
+          console.error("\nNo match found for option:", this.questionAll4);
 
         }
       }
@@ -355,13 +354,13 @@ class adultpage {
 
 
   }
-  async test_how_to_pay_options2() {
+  async test_How_To_Pay_Options2() {
     await this.test_how_to_pay_options();
     await this.page.waitForTimeout(3000);
     for (let x = 0; x < jsonValue8.length; x++) {
       await this.get_current_question4();
-      if (this.qastionAll4.startsWith(jsonValue8[x])) {
-        console.log("\nMatch on Main Pay option Qustions", this.qastionAll4);
+      if (this.questionAll4.startsWith(jsonValue8[x])) {
+        console.log("\nMatch on Main Pay option Qustions", this.questionAll4);
       }
     }
     let unmatchedElements55: string[] = [];
@@ -385,8 +384,8 @@ class adultpage {
         let isMatchFound = false;
         for (let o = 0; o < jsonValue7.length; o++) {
           await this.get_current_question6();
-          if (this.qastionAll6.startsWith(jsonValue7[o])) {
-            console.log("\nMatch found for option:", counter + 1, this.qastionAll6);
+          if (this.questionAll6.startsWith(jsonValue7[o])) {
+            console.log("\nMatch found for option:", counter + 1, this.questionAll6);
             await this.navigate();
             await this.page.waitForTimeout(2000);
             await this.test_how_to_pay_options();
@@ -398,8 +397,8 @@ class adultpage {
 
         if (!isMatchFound) {
           // No match found for this element
-          unmatchedElements55.push(this.qastionAll); // Store the unmatched element
-          console.error("\nNo match found for option:", counter + 1, this.qastionAll6);
+          unmatchedElements55.push(this.questionAll); // Store the unmatched element
+          console.error("\nNo match found for option:", counter + 1, this.questionAll6);
           await this.navigate();
           await this.page.waitForTimeout(2000);
           await this.test_how_to_pay_options();
@@ -421,7 +420,7 @@ class adultpage {
 
 
   async test_adult7() {
-    await this.test_how_to_pay_options2();
+    await this.test_How_To_Pay_Options2();
     await this.Select_first_and_continue();
     await this.page.waitForTimeout(4000);
     await this.Select_first_and_continue();
@@ -433,19 +432,19 @@ class adultpage {
       for (let r = 0; r < jsonValue9.length; r++) {
         isMatchFound9 = false;
         await this.get_current_question7();
-        if (this.qastionAll7.startsWith.jsonValue9[r]) {
-          console.log("\nMatch ", this.qastionAll7);
+        if (this.questionAll7.startsWith.jsonValue9[r]) {
+          console.log("\nMatch ", this.questionAll7);
           await this.Select_first_and_continue();
           await this.page.waitForTimeout(3000);
           await this.get_current_Wait();
           isMatchFound9 = true;
         }
         if (!isMatchFound9) {
-          unmatchedElements8.push(this.qastionAll7);
+          unmatchedElements8.push(this.questionAll7);
           await this.Select_first_and_continue();
           await this.page.waitForTimeout(3000);
           await this.get_current_Wait();
-          console.error("\nNo match found for option:", this.qastionAll7);
+          console.error("\nNo match found for option:", this.questionAll7);
 
         }
       }
@@ -462,8 +461,8 @@ class adultpage {
 
   }
 
-  async test_adult_With_email() {
-    await this.test_adult2();
+  async test_Adult_With_Email() {
+    await this.test_Adult2();
     await this.page.waitForTimeout(3000);
     await this.Select_first_option();
     await this.btnContinue.waitFor();
@@ -480,20 +479,20 @@ class adultpage {
       for (let u = 0; u < jsonValue5.length; u++) {
         isMatchFound10 = false;
         await this.get_current_question9();
-        if (this.qastionAll9.startsWith(jsonValue5[u])) {
-          console.log("\nMatch ", this.qastionAll9);
+        if (this.questionAll9.startsWith(jsonValue5[u])) {
+          console.log("\nMatch ", this.questionAll9);
           await this.Select_first_and_continue3();
           await this.Select_first_and_continue2();
           await this.page.waitForTimeout(2000);
           isMatchFound10 = true;
         }
         if (!isMatchFound10) {
-          unmatchedElements9.push(this.qastionAll9);
+          unmatchedElements9.push(this.questionAll9);
           await this.Select_first_and_continue3();
           await this.Select_first_and_continue2();
 
           await this.page.waitForTimeout(3000);
-          console.error("\nNo match found for option:", this.qastionAll9);
+          console.error("\nNo match found for option:", this.questionAll9);
 
         }
       }
@@ -529,7 +528,7 @@ class adultpage {
     const visibleElement = await this.findVisibleElement(this.allquestions, this.dropdownqe, this.thankyouQA);
     if (visibleElement) {
       //console.log('Current Question:', visibleElement);
-      this.qastionAll = await visibleElement.innerText();
+      this.questionAll = await visibleElement.innerText();
     }
     return visibleElement;
   }
@@ -539,7 +538,7 @@ class adultpage {
     if (visibleElement2) {
 
       //console.log('Current Question:', visibleElement);
-      this.qastionAll2 = await visibleElement2.innerText();
+      this.questionAll2 = await visibleElement2.innerText();
     }
     return visibleElement2;
   }
@@ -548,7 +547,7 @@ class adultpage {
     const visibleElement3 = await this.findVisibleElement(this.allquestions, this.dropdownqe, this.thankyouQA, this.allquestionsAdult);
     if (visibleElement3) {
       //console.log('Current Question:', visibleElement);
-      this.qastionAll3 = await visibleElement3.innerText();
+      this.questionAll3 = await visibleElement3.innerText();
     }
     return visibleElement3;
   }
@@ -557,7 +556,7 @@ class adultpage {
     const visibleElement4 = await this.findVisibleElement(this.allquestions, this.dropdownqe, this.thankyouQA, this.allquestionsAdult);
     if (visibleElement4) {
       //console.log('Current Question:', visibleElement);
-      this.qastionAll4 = await visibleElement4.innerText();
+      this.questionAll4 = await visibleElement4.innerText();
     }
     return visibleElement4;
   }
@@ -565,7 +564,7 @@ class adultpage {
     const visibleElement6 = await this.findVisibleElement(this.allquestions, this.dropdownqe, this.thankyouQA, this.allquestionsAdult);
     if (visibleElement6) {
       //console.log('Current Question:', visibleElement);
-      this.qastionAll6 = await visibleElement6.innerText();
+      this.questionAll6 = await visibleElement6.innerText();
     }
     return visibleElement6;
   }
@@ -574,7 +573,7 @@ class adultpage {
     const visibleElement7 = await this.findVisibleElement(this.allquestions, this.dropdownqe, this.thankyouQA, this.allquestionsAdult);
     if (visibleElement7) {
       //console.log('Current Question:', visibleElement);
-      this.qastionAll7 = await visibleElement7.innerText();
+      this.questionAll7 = await visibleElement7.innerText();
     }
     return visibleElement7;
   }
@@ -584,7 +583,7 @@ class adultpage {
     if (visibleElement9) {
       //console.log('Current Question:', visibleElement);
       await this.page.waitForTimeout(2000);
-      this.qastionAll9 = await visibleElement9.innerText();
+      this.questionAll9 = await visibleElement9.innerText();
     }
     return visibleElement9;
   }
@@ -676,4 +675,4 @@ class adultpage {
 
 
 }
-export default adultpage
+export default AdultPage
