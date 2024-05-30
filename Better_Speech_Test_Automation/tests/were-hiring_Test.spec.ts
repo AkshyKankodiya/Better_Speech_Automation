@@ -7,8 +7,8 @@ test.describe.serial('speech_therapy_near_me_page', () => {
 
     let werehiring_page : werehiring;
 
-    test.beforeEach(async ({ page }) => {
-        werehiring_page = new werehiring(page);
+    test.beforeEach(async ({ page,isMobile }) => {
+        werehiring_page = new werehiring(page,isMobile);
         await werehiring_page.navigate();
 
     });
@@ -21,7 +21,8 @@ test.describe.serial('speech_therapy_near_me_page', () => {
         await page.waitForTimeout(3000);
         await werehiring_page.slphire2();
     });
-    test('Testcase_002_Were Hiring', async ({ page }) => {
+
+   test('Testcase_002_Were Hiring', async ({ page }) => {
         await allure.step("Step_001_Without Upload Documents", async () => {
         });
         await werehiring_page.Fill_Form();
@@ -29,5 +30,5 @@ test.describe.serial('speech_therapy_near_me_page', () => {
         await werehiring_page.without_upload_Resume();
         await page.waitForTimeout(3000);
         await werehiring_page.slphire2();
-    });
+    }); 
 });

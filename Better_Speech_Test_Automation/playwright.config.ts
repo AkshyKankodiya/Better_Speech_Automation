@@ -36,7 +36,7 @@ const config: PlaywrightTestConfig = {
       headless: false,
       /* Base URL to use in actions like `await page.goto('/')`. */
       baseURL: 'https://www.betterspeech.com/',
-      viewport: null,
+      // viewport: null,
       // launchOptions: {
       //   args: ['--start-maximized'],
       // },
@@ -89,6 +89,7 @@ const config: PlaywrightTestConfig = {
         name: 'Samsung',
         use: {
           ...devices['Galaxy S9+'],
+          viewport:{height:846,width:412},
           hasTouch: true, 
         },
       },
