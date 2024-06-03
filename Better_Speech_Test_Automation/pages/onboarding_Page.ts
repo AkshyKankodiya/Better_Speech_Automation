@@ -1,5 +1,5 @@
 import { Page, Locator, Keyboard, expect, PlaywrightTestConfig, chromium } from '@playwright/test'
-import dropdownoption from '../../Better_Speech_Test_Automation/form_que_ans.json';
+import dropdownoption from '../../Better_Speech_Test_Automation/test-data/form_que_ans.json';
 
 
 class OnBoardingPage {
