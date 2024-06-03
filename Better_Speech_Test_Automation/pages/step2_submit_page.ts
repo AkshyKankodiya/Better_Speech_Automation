@@ -2,7 +2,7 @@ import { Page, Locator, Keyboard, expect, PlaywrightTestConfig, chromium } from 
 import Cards_Detail from '../test-data/Cards_Detail.json';
 import form_Data from '../test-data/Form_Data.json';
 
-class submitpage {
+class SubmitPage {
 
 
     page: Page;
@@ -113,7 +113,7 @@ class submitpage {
         }
     }
 
-    async randomEmail_method() {
+    async randomEmail_Method() {
         console.log("\nRandom Email:", this.randomEmail);
         const newTabURL = this.page.url();
         console.log('Current URL:', newTabURL);
@@ -170,7 +170,7 @@ class submitpage {
         console.log("\nPlace Order With Visa Card");
         await this.page.waitForTimeout(1000);
         this.handlePopups();
-        await this.randomEmail_method();
+        await this.randomEmail_Method();
         await this.page.waitForTimeout(2000);
         await this.selectDropDown2();
         await this.page.waitForTimeout(1000);
@@ -182,7 +182,7 @@ class submitpage {
         await this.Verify_On_ThankYou();
         this.handlePopups();
     }
-    async signup_as_my_child() {
+    async signup_As_My_Child() {
             this.handlePopups();
             this.place_Order_With_Valid_Visa();
             this.handlePopups();
@@ -201,7 +201,7 @@ class submitpage {
             await this.CalanderTap.click();
             await this.CurruntYear.waitFor();
             await this.CurruntYear.click();
-            await this.Select_Year();
+            await this.select_Year();
             await this.Dateselect.waitFor();
             await this.Dateselect.click();
             await this.Mibile_TextB.waitFor();
@@ -222,7 +222,7 @@ class submitpage {
 
         }
 
-        async signup_as_my_self() {
+        async signup_As_My_Self() {
         
             this.handlePopups();
             this.place_Order_With_Valid_Visa();
@@ -239,7 +239,7 @@ class submitpage {
             await this.CalanderTap.click();
             await this.CurruntYear.waitFor();
             await this.CurruntYear.click();
-            await this.Select_Year();
+            await this.select_Year();
             await this.Dateselect.waitFor();
             await this.Dateselect.click();
             await this.Mibile_TextB.waitFor();
@@ -259,7 +259,7 @@ class submitpage {
 
         }
 
-        async signup_as_another_adult() {
+        async signup_As_Another_Adult() {
         
             this.handlePopups();
             this.place_Order_With_Valid_Visa();
@@ -279,7 +279,7 @@ class submitpage {
             await this.CalanderTap.click();
             await this.CurruntYear.waitFor();
             await this.CurruntYear.click();
-            await this.Select_Year();
+            await this.select_Year();
             await this.Dateselect.waitFor();
             await this.Dateselect.click();
             await this.Mibile_TextB.waitFor();
@@ -312,7 +312,7 @@ class submitpage {
         }
     }
 
-    async Select_Year() {
+    async select_Year() {
 
         for (let i = 0; i < await this.total_year.count(); i++) {
             const YearText = await this.total_year.nth(i).textContent();
@@ -324,4 +324,4 @@ class submitpage {
         }
     }
 }
-export default submitpage
+export default SubmitPage

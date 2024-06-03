@@ -1,7 +1,7 @@
 import { Page, Locator, Keyboard, PlaywrightTestConfig, chromium, expect } from '@playwright/test'
 
 
-class speechtherapy {
+class SpeechTherapy {
 
     page: Page;
     loginBtn: Locator;
@@ -24,7 +24,7 @@ class speechtherapy {
         await this.page.goto('/');
         await this.page.waitForTimeout(2000);
     }
-    async Login_with_Cred() {
+    async login_With_Cred() {
         try {
             await this.page.waitForTimeout(2000);
             await this.loginBtn.click();
@@ -38,7 +38,7 @@ class speechtherapy {
             console.log("Wrong Email and Password", error)
         }
     }
-    async Verify_address() {
+    async verify_Address() {
         try {
             await this.page.waitForSelector("//span[text()='Location:']//following::p[2]");
             const elements = await this.page.$$("//span[text()='Location:']//following::p[2]");
@@ -59,7 +59,7 @@ class speechtherapy {
             console.log("Postal code does not match", error)
         }
     }
-    async Write_CSV() {
+    async write_CSV() {
         try {
             const addresses = await this.page.$$eval('.Zc7IjY', (elements) =>
                 elements.map((element) => element.textContent?.trim()).filter(Boolean)
@@ -78,4 +78,4 @@ class speechtherapy {
     }
 
 }
-export default speechtherapy
+export default SpeechTherapy

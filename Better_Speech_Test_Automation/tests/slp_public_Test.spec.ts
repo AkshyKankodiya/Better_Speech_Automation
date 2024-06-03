@@ -17,7 +17,7 @@ test.describe.serial('slp_public_page', () => {
     test('Testcase_001_Verify SLP Public ', async ({ page, context }) => {
         await allure.step("Step_001_Verify SLP Public", async () => {
         });
-        await slppublc_page.verify_elem_without_Login();
-        await slppublc_page.verify_elem_with_Login()
+        await slppublc_page.verify_Elem_Without_Login();
+        await slppublc_page.verify_Elem_With_Login()
     });
 });

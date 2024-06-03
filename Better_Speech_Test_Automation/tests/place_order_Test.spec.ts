@@ -21,14 +21,14 @@ test.describe.serial('Place_Order', () => {
         });
         console.log("\nInvalid Cards------------------------------------");
        
-        await placeorder_page.place_Order_With_Invalid_Generic_decline();
-        await placeorder_page.place_Order_With_Insufficient_funds_decline();
-        await placeorder_page.place_Order_With_Invalid_Lost_card_decline();
-        await placeorder_page.place_Order_With_Invalid_Stolen_card_decline();
-        await placeorder_page.place_Order_With_Invalid_incorrect_CVC_decline();
-        await placeorder_page.place_Order_With_Invalid_Processing_error_decline();
-        await placeorder_page.place_Order_With_Invalid_incorrect_number_decline();
-        await placeorder_page.place_Order_With_Invalid_Exceeding_velocity_limit_decline();
+        await placeorder_page.place_Order_With_Invalid_Generic_Decline();
+        await placeorder_page.place_Order_With_Insufficient_Funds_Decline();
+        await placeorder_page.place_Order_With_Invalid_Lost_Card_Decline();
+        await placeorder_page.place_Order_With_Invalid_Stolen_Card_Decline();
+        await placeorder_page.place_Order_With_Invalid_Incorrect_CVC_Decline();
+        await placeorder_page.place_Order_With_Invalid_Processing_Error_Decline();
+        await placeorder_page.place_Order_With_Invalid_Incorrect_Number_Decline();
+        await placeorder_page.place_Order_With_Invalid_Exceeding_Velocity_Limit_Decline();
 
         
 

@@ -1,7 +1,7 @@
 import { Page, Locator, Keyboard, expect, PlaywrightTestConfig, chromium } from '@playwright/test'
 import Cards_Detail from '../../Better_Speech_Test_Automation/test-data/Cards_Detail.json';
 
-class placeorderpage {
+class PlaceOrderPage {
 
 
     page: Page;
@@ -73,7 +73,7 @@ class placeorderpage {
         }
     }
 
-    async randomEmail_method() {
+    async randomEmail_Method() {
         console.log("\nRandom Email:", this.randomEmail);
         const newTabURL = this.page.url();
         console.log('Current URL:', newTabURL);
@@ -102,7 +102,7 @@ class placeorderpage {
         // await this.page.waitForTimeout(1000);
     }
 
-    async Verify_On_ThankYou() {
+    async verify_On_ThankYou() {
         try {
             await this.page.waitForTimeout(1000);
             await this.startTher.waitFor();
@@ -115,7 +115,7 @@ class placeorderpage {
         }
     }
 
-    async Verify_Error_Text() {
+    async verify_Error_Text() {
         try {
             await this.page.waitForTimeout(1000);
             await this.startTher.waitFor();
@@ -147,7 +147,7 @@ class placeorderpage {
         await this.navigate();
         await this.page.waitForTimeout(1000);
         this.handlePopups();
-        await this.randomEmail_method();
+        await this.randomEmail_Method();
         await this.selectDropDown2();
 
         await this.CardnumberFrame.waitFor();
@@ -155,7 +155,7 @@ class placeorderpage {
         await this.CardnumberFrame.click();
         await this.page.waitForTimeout(1000);
         await this.typeCardNumber(this.page, Cards_Detail.Valid_Visa);
-        await this.Verify_On_ThankYou();
+        await this.verify_On_ThankYou();
 
     }
 
@@ -164,7 +164,7 @@ class placeorderpage {
         await this.navigate();
         await this.page.waitForTimeout(1000);
         this.handlePopups();
-        await this.randomEmail_method();
+        await this.randomEmail_Method();
         await this.selectDropDown2();
 
         await this.CardnumberFrame.waitFor();
@@ -172,7 +172,7 @@ class placeorderpage {
         await this.CardnumberFrame.click();
         await this.page.waitForTimeout(1000);
         await this.typeCardNumber(this.page, Cards_Detail.Valid_Mastercard);
-        await this.Verify_On_ThankYou();
+        await this.verify_On_ThankYou();
 
     }
 
@@ -181,7 +181,7 @@ class placeorderpage {
         await this.navigate();
         await this.page.waitForTimeout(1000);
         this.handlePopups();
-        await this.randomEmail_method();
+        await this.randomEmail_Method();
         await this.selectDropDown2();
 
         await this.CardnumberFrame.waitFor();
@@ -189,7 +189,7 @@ class placeorderpage {
         await this.CardnumberFrame.click();
         await this.page.waitForTimeout(1000);
         await this.typeCardNumber(this.page, Cards_Detail.Valid_American_Express);
-        await this.Verify_On_ThankYou();
+        await this.verify_On_ThankYou();
 
     }
 
@@ -198,7 +198,7 @@ class placeorderpage {
         await this.navigate();
         await this.page.waitForTimeout(1000);
         this.handlePopups();
-        await this.randomEmail_method();
+        await this.randomEmail_Method();
         await this.selectDropDown2();
 
         await this.CardnumberFrame.waitFor();
@@ -206,16 +206,16 @@ class placeorderpage {
         await this.CardnumberFrame.click();
         await this.page.waitForTimeout(1000);
         await this.typeCardNumber(this.page, Cards_Detail.Valid_Discover);
-        await this.Verify_On_ThankYou();
+        await this.verify_On_ThankYou();
 
     }
 
-    async place_Order_With_Invalid_Generic_decline() {
+    async place_Order_With_Invalid_Generic_Decline() {
         console.log("\nInvalid Generic decline Card");
         //await this.navigate();
         await this.page.waitForTimeout(1000);
         this.handlePopups();
-        await this.randomEmail_method();
+        await this.randomEmail_Method();
         await this.page.waitForTimeout(2000);
         await this.selectDropDown2();
         await this.CardnumberFrame.waitFor();
@@ -223,64 +223,64 @@ class placeorderpage {
         await this.CardnumberFrame.click();
         await this.page.waitForTimeout(1000);
         await this.typeCardNumber(this.page, Cards_Detail.Invalid_Generic_decline);
-        await this.Verify_Error_Text();
+        await this.verify_Error_Text();
 
     }
 
-    async place_Order_With_Insufficient_funds_decline() {
+    async place_Order_With_Insufficient_Funds_Decline() {
         console.log("\nInvalid Insufficient funds decline Card");
         await this.navigate();
         this.handlePopups();
         await this.page.waitForTimeout(1000);
-        await this.randomEmail_method();
+        await this.randomEmail_Method();
         await this.selectDropDown2();
         await this.CardnumberFrame.waitFor();
         await this.CardnumberFrame.isEnabled();
         await this.CardnumberFrame.click();
         await this.page.waitForTimeout(1000);
         await this.typeCardNumber(this.page, Cards_Detail.Invalid_Insufficient_funds_decline);
-        await this.Verify_Error_Text();
+        await this.verify_Error_Text();
 
     }
 
-    async place_Order_With_Invalid_Lost_card_decline() {
+    async place_Order_With_Invalid_Lost_Card_Decline() {
         console.log("\nInvalid Lost card decline Card");
         await this.navigate();
         this.handlePopups();
         await this.page.waitForTimeout(1000);
-        await this.randomEmail_method();
+        await this.randomEmail_Method();
         await this.selectDropDown2();
         await this.CardnumberFrame.waitFor();
         await this.CardnumberFrame.isEnabled();
         await this.CardnumberFrame.click();
         await this.page.waitForTimeout(1000);
         await this.typeCardNumber(this.page, Cards_Detail.Invalid_Lost_card_decline);
-        await this.Verify_Error_Text();
+        await this.verify_Error_Text();
 
     }
 
-    async place_Order_With_Invalid_Stolen_card_decline() {
+    async place_Order_With_Invalid_Stolen_Card_Decline() {
         console.log("\nInvalid Stolen card decline Card");
         await this.navigate();
         await this.page.waitForTimeout(1000);
         this.handlePopups();
-        await this.randomEmail_method();
+        await this.randomEmail_Method();
         await this.selectDropDown2();
         await this.CardnumberFrame.waitFor();
         await this.CardnumberFrame.isEnabled();
         await this.CardnumberFrame.click();
         await this.page.waitForTimeout(1000);
         await this.typeCardNumber(this.page, Cards_Detail.Invalid_Stolen_card_decline);
-        await this.Verify_Error_Text();
+        await this.verify_Error_Text();
 
     }
 
-    async place_Order_With_Invalid_Expired_card_decline() {
+    async place_Order_With_Invalid_Expired_Card_Decline() {
         console.log("\nInvalid Expired card decline Card");
         await this.navigate();
         await this.page.waitForTimeout(1000);
         this.handlePopups();
-        await this.randomEmail_method();
+        await this.randomEmail_Method();
         await this.selectDropDown2();
         await this.CardnumberFrame.waitFor();
         await this.CardnumberFrame.isEnabled();
@@ -288,71 +288,71 @@ class placeorderpage {
         await this.page.waitForTimeout(1000);
         await this.typeCardNumber(this.page, Cards_Detail.Invalid_Expired_card_decline);
         await this.navigate();
-        await this.Verify_Error_Text();
+        await this.verify_Error_Text();
 
     }
 
-    async place_Order_With_Invalid_incorrect_CVC_decline() {
+    async place_Order_With_Invalid_Incorrect_CVC_Decline() {
         console.log("\nInvalid incorrect CVC decline Card");
         await this.navigate();
         await this.page.waitForTimeout(1000);
         this.handlePopups();
-        await this.randomEmail_method();
+        await this.randomEmail_Method();
         await this.selectDropDown2();
         await this.CardnumberFrame.waitFor();
         await this.CardnumberFrame.isEnabled();
         await this.CardnumberFrame.click();
         await this.page.waitForTimeout(1000);
         await this.typeCardNumber(this.page, Cards_Detail.Invalid_incorrect_CVC_decline);
-        await this.Verify_Error_Text();
+        await this.verify_Error_Text();
 
     }
 
-    async place_Order_With_Invalid_Processing_error_decline() {
+    async place_Order_With_Invalid_Processing_Error_Decline() {
         console.log("\nInvalid Processing error decline Card");
         await this.navigate();
         await this.page.waitForTimeout(1000);
         this.handlePopups();
-        await this.randomEmail_method();
+        await this.randomEmail_Method();
         await this.selectDropDown2();
         await this.CardnumberFrame.waitFor();
         await this.CardnumberFrame.isEnabled();
         await this.CardnumberFrame.click();
         await this.page.waitForTimeout(1000);
         await this.typeCardNumber(this.page, Cards_Detail.Invalid_Processing_error_decline);
-        await this.Verify_Error_Text();
+        await this.verify_Error_Text();
 
     }
 
-    async place_Order_With_Invalid_incorrect_number_decline() {
+    async place_Order_With_Invalid_Incorrect_Number_Decline() {
         console.log("\nInvalid incorrect number decline Card");
         await this.navigate();
         await this.page.waitForTimeout(1000);
         this.handlePopups();
-        await this.randomEmail_method();
+        await this.randomEmail_Method();
         await this.selectDropDown2();
         await this.CardnumberFrame.waitFor();
         await this.CardnumberFrame.isEnabled();
         await this.CardnumberFrame.click();
         await this.page.waitForTimeout(1000);
         await this.typeCardNumber(this.page, Cards_Detail.Invalid_incorrect_number_decline);
-        await this.Verify_Error_Text();
+        await this.verify_Error_Text();
 
     }
 
-    async place_Order_With_Invalid_Exceeding_velocity_limit_decline() {
+    async place_Order_With_Invalid_Exceeding_Velocity_Limit_Decline() {
         console.log("\nInvalid Exceeding velocity limit decline Card");
         await this.navigate();
         await this.page.waitForTimeout(1000);
         this.handlePopups();
-        await this.randomEmail_method();
+        await this.randomEmail_Method();
         await this.selectDropDown2();
         await this.CardnumberFrame.waitFor();
         await this.CardnumberFrame.isEnabled();
         await this.CardnumberFrame.click();
         await this.page.waitForTimeout(1000);
         await this.typeCardNumber(this.page, Cards_Detail.Invalid_Exceeding_velocity_limit_decline);
-        await this.Verify_Error_Text();
+        await this.verify_Error_Text();
 
     }
 
@@ -387,4 +387,4 @@ class placeorderpage {
 
 
 }
-export default placeorderpage
+export default PlaceOrderPage

@@ -15,15 +15,15 @@ test.describe.serial('Step2_Submit', () => {
 
     });
     test('Testcase_001_Signup_as_my_child', async ({ page, context }) => {
-        await submit_page.signup_as_my_child();
+        await submit_page.signup_As_My_Child();
     });
 
     test('Testcase_002_Signup_as_my_self', async ({ page, context }) => {
-        await submit_page.signup_as_my_self();
+        await submit_page.signup_As_My_Self();
     });
 
     test('Testcase_003_Signup_as_another_adult', async ({ page, context }) => {
-        await submit_page.signup_as_another_adult();
+        await submit_page.signup_As_Another_Adult();
     });
 
 

@@ -16,14 +16,14 @@ test.describe.serial('speech_therapy_near_me_page', () => {
     test('Testcase_001_Speech therapy near me', async ({ page }) => {
         await allure.step("Step_001_Login with Credentials", async () => {
         });
-        await speech_therapy_near_me_Page.Login_with_Cred();
+        await speech_therapy_near_me_Page.login_With_Cred();
 
         await allure.step("Step_002_Verify that all address are from USA", async () => {
         });
-        await speech_therapy_near_me_Page.Verify_address();
+        await speech_therapy_near_me_Page.verify_Address();
 
         await allure.step("Step_003_Store Addresses into CSV file", async () => {
         });
-        await speech_therapy_near_me_Page.Write_CSV();
+        await speech_therapy_near_me_Page.write_CSV();
     });
 });

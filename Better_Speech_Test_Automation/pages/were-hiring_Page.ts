@@ -3,7 +3,7 @@ import * as fs from 'fs';
 import * as path from 'path';
 
 
-class werehiring {
+class WereHiring {
 
     page: Page;
     tboxfirstname: Locator;
@@ -62,7 +62,7 @@ class werehiring {
         console.log('Random Email:',this.randomEmail);
         return this.randomEmail;
     }
-    async Fill_Form(){
+    async fill_Form(){
         await this.page.waitForTimeout(2000);
         await this.tboxfirstname.fill('Better');
         await this.tboxlastname.fill('QA Test');
@@ -81,7 +81,7 @@ class werehiring {
         await this.page.waitForTimeout(5000);
         await this.checkbox3.click();
     }
-    async slphire2(){
+    async slpHire2(){
         await this.page.goto('/' + 'slphire2');
         await this.emailsignup.fill(this.randomEmail);
         await this.password.fill(this.randomEmail);
@@ -103,7 +103,7 @@ class werehiring {
         return path.join(dir, files[randomIndex]);
     }
     async upload_Resume(){
-        const projectFolderPath = 'Doc_Resume'; 
+        const projectFolderPath = '../Doc_Resume'; 
         const projectFolder = path.resolve(__dirname,projectFolderPath);
         const randomFile = await this.getRandomFile(projectFolder);
 
@@ -121,7 +121,7 @@ class werehiring {
 
     /* Without Upload Resume */
 
-    async without_upload_Resume(){
+    async without_Upload_Resume(){
         
         await this.btnSubmit.click(); 
         // await this.btnError.waitFor();
@@ -131,10 +131,10 @@ class werehiring {
         await this.page.reload();
         await this.page.waitForTimeout(10000);
 
-        await this.Fill_Form();
+        await this.fill_Form();
         await this.upload_Resume();
 
     }
     
 }
-export default werehiring
+export default WereHiring

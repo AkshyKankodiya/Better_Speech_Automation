@@ -4,7 +4,7 @@ import { relative } from 'path';
 const cheerio = import("cheerio");
 
 
-class slpdashboard {
+class SlpDashboard {
 
   page: Page;
   btnChangeStatus: Locator;
@@ -97,7 +97,7 @@ class slpdashboard {
     await this.page.waitForTimeout(1000)
 
   }
-  async check_Disabled_date() {
+  async check_Disabled_Date() {
     await this.page.waitForTimeout(1000)
     await this.elemOfDas.waitFor();
     await this.page.evaluate(() => {
@@ -108,7 +108,7 @@ class slpdashboard {
     await this.radioimnearingcapacity.waitFor();
     await this.radioimnearingcapacity.click();
     await this.selectDate1.click();
-    await this.check_Disabled_Dates_in_Month(this.page);
+    await this.check_Disabled_Dates_In_Month(this.page);
     if(this.isMob){
       await this.closeCalander.click();
     }
@@ -118,7 +118,7 @@ class slpdashboard {
     }
   }
 
-  async check_Valid_date() {
+  async check_Valid_Date() {
     if(this.isMob){
       await this.page.waitForTimeout(2000);
       await this.page.reload();
@@ -130,7 +130,7 @@ class slpdashboard {
     
   }
 
-  async submit_Request_for_near_capacity() {
+  async submit_Request_For_Near_Capacity() {
     console.log("\n-------------I'm nearing capacity");
     await this.selectDate1.click();
     await this.checkAndInteractWithDates(this.page);
@@ -146,7 +146,7 @@ class slpdashboard {
 
   }
 
-  async submit_Request_for_temporary_leave() {
+  async submit_Request_For_Temporary_Leave() {
     console.log("\n-------------I'm planning a temporary leave");
     await this.Date_Thankyou.waitFor();
     await this.page.reload();
@@ -251,7 +251,7 @@ class slpdashboard {
     } while (enabledDateCount < 3);
   }
 
-  async check_Disabled_Dates_in_Month(page: Page) {
+  async check_Disabled_Dates_In_Month(page: Page) {
     let anyDateEnabled = false;
     
     do {
@@ -279,7 +279,7 @@ class slpdashboard {
 
     } while (!anyDateEnabled);
   }
-  async Email_Read(){
+  async email_Read(){
     await mailHelper.readEmail(this.page,
       "tqa8769@gmail.com",
       "testqa2606@gmail.com",
@@ -288,7 +288,7 @@ class slpdashboard {
   }
   
 }
-export default slpdashboard;
+export default SlpDashboard;
 
 export const mailHelper = {
   async messageChecker(fromEmail: string, toEmail: string) {

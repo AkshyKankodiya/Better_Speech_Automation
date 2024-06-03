@@ -18,16 +18,16 @@ test.describe.serial('SLP_Dashboard', () => {
 
         await allure.step("Step_001_Verify_Dates", async () => {
         });
-        await slp_dashboard.check_Valid_date();
-        await slp_dashboard.check_Disabled_date();
+        await slp_dashboard.check_Valid_Date();
+        await slp_dashboard.check_Disabled_Date();
         
         await allure.step("Step_002_submit_Request", async () => {
         });
        
-        await slp_dashboard.submit_Request_for_near_capacity();
-        await slp_dashboard.submit_Request_for_temporary_leave();
+        await slp_dashboard.submit_Request_For_Near_Capacity();
+        await slp_dashboard.submit_Request_For_Temporary_Leave();
 
-        await slp_dashboard.Email_Read();
+        await slp_dashboard.email_Read();
 
     });
 
