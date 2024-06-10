@@ -1,0 +1,29 @@
+{
+    "Territory": [
+        "Canada",
+        "Ireland",
+        "Alaska",
+        "California",
+        "Hawaii"
+    ],
+    "Status": [
+        "All",
+        "Candidate",
+        "Candidate 1",
+        "Candidate 2"
+    ],
+    "CountryCode": [
+        "CA-ALL",
+        "IE-ALL",
+        "US-AK",
+        "US-CA",
+        "US-HI"
+    ] ,
+    "Status2": [
+        "candidate",
+        "candidate 1",
+        "candidate 2"
+    ]
+
+    
+}

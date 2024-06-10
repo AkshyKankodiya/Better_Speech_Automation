@@ -13,11 +13,26 @@ test.describe.serial('slp_dashboard_profile', () => {
         await Slp_application_filter.navigate();
 
     });
-    test('Testcase_001_Verify Slp Application Filter ', async ({ page, context }) => {
+    test('Testcase_001_Verify Slp Application Filter By Territory ', async ({ page, context }) => {
         await allure.step("Step_001_Verify Slp Application Filter", async () => {
         });
 
-        await Slp_application_filter.filter_By_Valid_Data();
+        await Slp_application_filter.filter_By_Territory();
+
+    });
+
+    test('Testcase_002_Verify Slp Application Filter By Status ', async ({ page, context }) => {
+        await allure.step("Step_001_Verify Slp Application Filter By Status", async () => {
+        });
+
+        await Slp_application_filter.filter_By_Status();
+        
+    });
+    test('Testcase_003_Verify Slp Application Filter By Date', async ({ page, context }) => {
+        await allure.step("Step_001_Verify Slp Application Filter By Date", async () => {
+        });
+
+        await Slp_application_filter.filter_By_Date();
         await Slp_application_filter.filter_By_Not_DataPresent();
 
     });
