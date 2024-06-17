@@ -1,0 +1,36 @@
+{
+    "StartingHour":"40",
+    "Hourly_min_rate":"57",
+    "Hourly_max_rate":"$83",
+
+    "StartingSession": "6",     
+    "Min_Sessions_per_client": "13",
+    "Max_Sessions_per_client": "25",
+
+    "Min_Hourly_Rate_Increase":"6",
+    "Max_Hourly_Rate_Increase":"25",
+    "Slide_Rate":"57",
+    "Rate_Increase_Per_Slide": "1.5",
+
+    "Customer_Starting_Rating": "1",
+    "Customer_End_Rating": "5",
+
+    "MaxRate": "1.45",
+    "MaxSession": "1.85",
+
+    "Hourly_Rate_Text": "Your current Hourly Rate for therapy",
+    "Sessions_Rate_Text1": "The average number of sessions of your clients until they Graduate or Cancel. To increase this number:",
+    "Sessions_Rate_Text2": "- Conduct Monthly Check-Ups: Assess speech gaps, set new goals & communicate to the clients to prevent premature cancelation.",
+    "Sessions_Rate_Text3": "- Transition to Sustain Plan: Maintain and enhance speech gains over once-a month checkup session.",
+    "Sessions_Rate_Text4": "- Consistency & Flexibility: Stick to a weekly schedule but adapt when needed",
+    "Sessions_Rate_Text5": "- Preparation & Homework: Be ready, present professionally & assign practices so the client gets more value from their membership.",
+    "Increase_your_hourly_rate_Text" : "You can increase your hourly rate by:",
+    "Increase_your_hourly_rate_Text1": "- Conducting Monthly Check-Ups: Assess speech gaps, set new goals & communicate to clients to prevent premature cancelation",
+    "Increase_your_hourly_rate_Text2": "- Transition to Sustain Plan: Maintain and enhance speech gains over once-a month checkup session.",
+    "Increase_your_hourly_rate_Text3": "- Consistency & Flexibility: Stick to a weekly schedule but adapt when needed",
+    "Increase_your_hourly_rate_Text4": "- Preparation & Homework: Be ready, present professionally & assign practices so the client gets more value from their membership",
+    "Increase_your_hourly_rate_Text5": "Note: The Hourly Rate is calibrated every annual-quarter by reviewing the previous quarter’s average and the new hourly rate applies to all hours provided in the upcoming quarter.",
+    "Customer_Rating_Text": "The average rating of all your past clients. Click the link to see details."
+
+
+}
