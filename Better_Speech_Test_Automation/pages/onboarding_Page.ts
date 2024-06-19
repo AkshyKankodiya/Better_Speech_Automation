@@ -14,6 +14,7 @@ class OnBoardingPage {
   ExpectedFinElm: string;
   onboardingTab: any;
   onboardingTabPromise: Promise<Page>;
+  btnChild: Locator;
 
 
 
@@ -23,12 +24,13 @@ class OnBoardingPage {
     this.page = page;
     this.btnGetBetterSpeech = page.locator("(//span[contains(text(),'Get Better Speech')])[1]")
     this.expectedName = page.locator("//h1[contains(@class,'wixui-rich')]")
-    this.actualName = "Rahul, welcome to Better Speech";
+    this.actualName = "Better speech qa, welcome to Better Speech";
     this.actualEmail = "qabetterspeech@gmail.com";
     this.Email = "qabetterspeech@gmail.com"
     this.Password = "Kamal@12"
     this.ExpectedFinElm = "Financial Aid applied"
     this.onboardingTabPromise = this.page.waitForEvent('popup'); 
+    this.btnChild = page.locator("(//a[@class='MVY5Lo'])[1]//img")
     
   }
   async navigate() {
@@ -40,165 +42,119 @@ class OnBoardingPage {
     await this.btnGetBetterSpeech.click();
     this.checkForPopupOrElement();
   }
+  async btnClick_MyChild() {
+    
+    this.checkForPopupOrElement();
+    await this.btnChild.click();
+    this.checkForPopupOrElement();
+  }
 
   async switchTab() {
     try {
 
       const onboardingTab = await this.onboardingTabPromise;
       await onboardingTab.waitForLoadState('domcontentloaded');
-  
-
-      await this.page.waitForTimeout(1000);
-
-      const Answer1 = onboardingTab.locator('//div[@data-qa="choice"]', { hasText : dropdownoption.Question1});
-      await Answer1.click();
 
       await this.page.waitForTimeout(1000);
       const input = onboardingTab.locator("(//*[contains(@aria-controls,'dropdown')])[1]");
       await input.click();
 
       await this.page.waitForTimeout(1000);
-      const Answer2 = onboardingTab.locator("//*[@role='option']",{ hasText : dropdownoption.Question2});
+      const Answer1 = onboardingTab.locator("//*[@role='option']",{ hasText : dropdownoption.Question1});
+      await Answer1.click();
+
+      await this.page.waitForTimeout(1000);
+      const Answer2 = onboardingTab.locator("(//div[@data-qa='choice-list'])[1]/div",{ hasText : dropdownoption.Question2});
       await Answer2.click();
+
+      await this.page.waitForTimeout(1000);
+      const Answer3 = onboardingTab.locator("(//div[@data-qa='choice-list'])[2]/div",{ hasText : dropdownoption.Question3});
+      await Answer3.click();
+
+      await this.page.waitForTimeout(1000);
+      const Answer4 = onboardingTab.locator("//div[@data-qa='opinion-scale-step']",{ hasText : dropdownoption.Question4});
+      await Answer4.click();
+
+      await this.page.waitForTimeout(1000);
+      const Answer5 = onboardingTab.locator("(//div[@data-qa='choice-list'])[1]/div",{ hasText : dropdownoption.Question5});
+      await Answer5.click();
 
       const btnContinue = onboardingTab.locator("//span[text()='Continue']");
       await btnContinue.click();
 
       await this.page.waitForTimeout(1000);
-      const Answer3 = onboardingTab.locator("(//div[@data-qa='choice-list'])[1]/div",{ hasText : dropdownoption.Question3});
-      await Answer3.click();
-
-      await this.page.waitForTimeout(1000);
-      const Answer4 = onboardingTab.locator("(//div[@data-qa='choice-list'])[2]/div",{ hasText : dropdownoption.Question4});
-      await Answer4.click();
-
-      await this.page.waitForTimeout(1000);
-      const Answer5 = onboardingTab.locator("//div[@data-qa='opinion-scale-step']",{ hasText : dropdownoption.Question5});
-      await Answer5.click();
-
-      await this.page.waitForTimeout(1000);
       const Answer6 = onboardingTab.locator("(//div[@data-qa='choice-list'])[1]/div",{ hasText : dropdownoption.Question6});
       await Answer6.click();
 
-      const btnContinue1 = onboardingTab.locator("//span[text()='Continue']");
-      await btnContinue1.click();
-
       await this.page.waitForTimeout(1000);
-      const Answer7 = onboardingTab.locator("(//div[@data-qa='choice-list'])[1]/div",{ hasText : dropdownoption.Question7});
-      await Answer7.click();
-
-      await this.page.waitForTimeout(1000);
-      const Answer8 = onboardingTab.locator("(//div[@data-qa='choice-list'])[2]/div",{ hasText : dropdownoption.Question8});
-      await Answer8.click();
-
-      await this.page.waitForTimeout(1000);
-      const Answer9 = onboardingTab.locator("(//div[@data-qa='choice-list'])[2]/div",{ hasText : dropdownoption.Question9});
-      await Answer9.click();
+      const Answer7 = onboardingTab.locator("//input[@type='email']");
+      await Answer7.fill(dropdownoption.Question7);
 
       const btnOK = onboardingTab.locator("(//span[contains(@class,'ButtonTextWrapper')]//child::span)[2]")
       await btnOK.click();
 
       await this.page.waitForTimeout(1000);
-      const Answer10 = onboardingTab.locator("(//div[@data-qa='choice-list'])[2]/div",{ hasText : dropdownoption.Question10});
-      await Answer10.click();
+      const Answer8 = onboardingTab.locator("(//div[@data-qa='choice-list'])[1]/div",{ hasText : dropdownoption.Question8});
+      await Answer8.click();
 
       const btnOK1 = onboardingTab.locator("(//span[contains(@class,'ButtonTextWrapper')]//child::span)[2]")
       await btnOK1.click();
 
       await this.page.waitForTimeout(1000);
-      const Answer11 = onboardingTab.locator("(//div[@data-qa='choice-list'])[2]/div",{ hasText : dropdownoption.Question11});
-      await Answer11.click();
+      const Answer9 = onboardingTab.locator("(//div[@data-qa='choice-list'])[2]/div",{ hasText : dropdownoption.Question9});
+      await Answer9.click();
 
-      const btnOK2 = onboardingTab.locator("(//span[contains(@class,'ButtonTextWrapper')]//child::span)[2]")
-      await btnOK2.click();
+      const btnContinue1 = onboardingTab.locator("//span[text()='Continue']");
+      await btnContinue1.click();
 
+      await this.page.waitForTimeout(1000);
+      const Answer10 = onboardingTab.locator("(//div[@data-qa='choice-list'])[1]/div",{ hasText : dropdownoption.Question10});
+      await Answer10.click();
+
+      await this.page.waitForTimeout(1000);
       const btnContinue2 = onboardingTab.locator("//span[text()='Continue']");
       await btnContinue2.click();
 
       await this.page.waitForTimeout(1000);
+      const input1 = onboardingTab.locator("(//*[contains(@aria-controls,'dropdown')])[1]");
+      await input1.click();
+
+      await this.page.waitForTimeout(1000);
+      const Answer11 = onboardingTab.locator("//*[@role='option']",{ hasText : dropdownoption.Question11});
+      await Answer11.click();
+
+      await this.page.waitForTimeout(1000);
+      const btnContinue3 = onboardingTab.locator("//span[text()='Continue']");
+      await btnContinue3.click();
+      
+      await this.page.waitForTimeout(1000);
       const Answer12 = onboardingTab.locator("(//div[@data-qa='choice-list'])[1]/div",{ hasText : dropdownoption.Question12});
       await Answer12.click();
+
+      const btnOK2 = onboardingTab.locator("(//span[contains(@class,'ButtonTextWrapper')]//child::span)[2]")
+      await btnOK2.click();
+
+      await this.page.waitForTimeout(1000);
+      const btnContinue4 = onboardingTab.locator("(//span[text()='Continue'])[1]");
+      await btnContinue4.click();
+
+      await this.page.waitForTimeout(1000);
+      const btnContinue5 = onboardingTab.locator("(//span[text()='Continue'])[2]");
+      await btnContinue5.click();
+
+      await this.page.waitForTimeout(1000);
+      const Answer13 = onboardingTab.locator("(//input[@type='text'])[1]");
+      await Answer13.fill(dropdownoption.Question13);
 
       const btnOK3 = onboardingTab.locator("(//span[contains(@class,'ButtonTextWrapper')]//child::span)[2]")
       await btnOK3.click();
 
       await this.page.waitForTimeout(1000);
-      const Answer13 = onboardingTab.locator("(//div[@data-qa='choice-list'])[2]/div",{ hasText : dropdownoption.Question13});
-      await Answer13.click();
-
-      // const btnOK9 = onboardingTab.locator("//button[contains(@data-qa,'ok-button-visible')]")
-      // await btnOK9.click();
-
-      const btnContinue3 = onboardingTab.locator("//span[text()='Continue']");
-      await btnContinue3.click();
-
-      await this.page.waitForTimeout(1000);
-      const Answer14 = onboardingTab.locator("(//div[@data-qa='choice-list'])[1]/div",{ hasText : dropdownoption.Question14});
-      await Answer14.click();
+      const Answer14 = onboardingTab.locator("(//input[@type='text'])[2]");
+      await Answer14.fill(dropdownoption.Question14);
 
       const btnOK4 = onboardingTab.locator("(//span[contains(@class,'ButtonTextWrapper')]//child::span)[2]")
       await btnOK4.click();
-
-      await this.page.waitForTimeout(1000);
-      const Answer15 = onboardingTab.locator("(//div[@data-qa='choice-list'])[2]/div",{ hasText : dropdownoption.Question15});
-      await Answer15.click();
-
-      // const btnOK10 = onboardingTab.locator("(//span[text()='OK'])[2]")
-      // await btnOK10.click();
-
-      const btnContinue4 = onboardingTab.locator("//span[text()='Continue']");
-      await btnContinue4.click();
-
-      await this.page.waitForTimeout(1000);
-      const Answer16 = onboardingTab.locator("(//div[@data-qa='choice-list'])[1]/div",{ hasText : dropdownoption.Question16});
-      await Answer16.click();
-
-      // const btnOK11 = onboardingTab.locator("(//span[text()='OK'])[1]")
-      // await btnOK11.click();
-
-      const btnContinue5 = onboardingTab.locator("(//span[text()='Continue'])[1]");
-      await btnContinue5.click();
-
-      await this.page.waitForTimeout(1000);
-      const Answer17 = onboardingTab.locator("(//div[@data-qa='choice-list'])[1]/div",{ hasText : dropdownoption.Question17});
-      await Answer17.click();
-
-      const btnOK5 = onboardingTab.locator("(//span[contains(@class,'ButtonTextWrapper')]//child::span)[2]")
-      await btnOK5.click();
-
-      const btnContinue6 = onboardingTab.locator("//span[text()='Continue']");
-      await btnContinue6.click();
-
-      await this.page.waitForTimeout(1000);
-      const Answer18 = onboardingTab.locator("//textarea[@placeholder='Type your answer here...']");
-      await Answer18.fill(dropdownoption.Question18);
-
-      const btnOK6 = onboardingTab.locator("(//span[contains(@class,'ButtonTextWrapper')]//child::span)[2]")
-      await btnOK6.click();
-
-      const btnContinue7 = onboardingTab.locator("//span[text()='Continue']");
-      await btnContinue7.click();
-
-      await this.page.waitForTimeout(1000);
-      const Answer19 = onboardingTab.locator("(//input[@placeholder='Jane'])[1]");
-      await Answer19.fill(dropdownoption.Question19);
-
-      const btnOK7 = onboardingTab.locator("(//span[contains(@class,'ButtonTextWrapper')]//child::span)[2]")
-      await btnOK7.click();
-
-      await this.page.waitForTimeout(1000);
-      const Answer20 = onboardingTab.locator("(//input[@placeholder='Jane'])[2]");
-      await Answer20.fill(dropdownoption.Question20);
-
-      const btnOK8 = onboardingTab.locator("(//span[contains(@class,'ButtonTextWrapper')]//child::span)[2]")
-      await btnOK8.click();
-
-      const btnContinue8 = onboardingTab.locator("//span[text()='Continue']");
-      await btnContinue8.click();
-
-      await this.page.waitForTimeout(1000);
-      const Answer21 = onboardingTab.locator("//input[@type='email']");
-      await Answer21.fill(dropdownoption.Question21);
 
       await this.page.waitForTimeout(1000);
       const btnSubmit = onboardingTab.locator("//span[text()='Submit']")
@@ -212,17 +168,17 @@ class OnBoardingPage {
 
       await onboardingTab.mouse.down();
       await onboardingTab.waitForTimeout(1000);
-      const btnStartTherapy = await onboardingTab.locator("//span[text()='Start Therapy']")
+      const btnStartTherapy = onboardingTab.locator("//span[text()='Start Therapy']")
       await btnStartTherapy.isVisible();
       await btnStartTherapy.isEnabled();
 
-      const emailInput1 = await onboardingTab.locator("//input[@name='email']");
+      const emailInput1 = onboardingTab.locator("//input[@name='email']");
       const emailValue1 = await emailInput1.inputValue();
       expect(this.actualEmail).toContain(emailValue1);
       console.log('\nActual Email:', this.actualEmail)
       console.log('Expected Email:', emailValue1)
       
-      const LinkText = await onboardingTab.locator("//span[contains(text(),'Not ready or can')]")
+      const LinkText = onboardingTab.locator("//span[contains(text(),'Not ready or can')]")
       const LinkValue = await LinkText.textContent();
       console.log("\nLink Text:", LinkValue);
       await this.page.waitForTimeout(4000);

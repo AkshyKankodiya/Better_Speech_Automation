@@ -18,6 +18,7 @@ test.describe.serial('onboarding_Page', () => {
         await allure.step("Step_001_Verify Get Better Speech Page", async () => {
         });
         await onboarding_Page.btnClick_GetBetterSpeech();
+        await onboarding_Page.btnClick_MyChild();
         await onboarding_Page.switchTab();
     });
 });

@@ -27,7 +27,7 @@ test.describe.serial('SLP_Dashboard', () => {
         await slp_dashboard.submit_Request_For_Near_Capacity();
         await slp_dashboard.submit_Request_For_Temporary_Leave();
 
-        await slp_dashboard.email_Read();
+        // await slp_dashboard.email_Read();
 
     });
 

@@ -42,12 +42,12 @@ class SlpPublic {
     this.page = page;
 
     this.profilename = page.locator("(//h1//span/span)[1]")
-    this.profileimge = page.locator("//img[contains(@alt,'Image-empty-state')]")
+    this.profileimge = page.locator("(//div[@data-testid ='linkElement'])[2]//img")
     this.aboutMetitle = page.locator("//span[text()='About Me:']")
     this.cirtiFicationtitle = page.locator("//span[text()='Certification:']")
     this.btnloginOption = page.locator("//span[text()='Login']")
     this.Licensedmetitle = page.locator("//span[text()='Licensed in States:']")
-    this.Reviews_title = page.locator("//span[text()='Reviews:']")
+    this.Reviews_title = page.locator("//span[contains(text(),'Reviews For')]")
     this.AboutSpeechTherapy_title = page.locator("//span[contains(text(),'About Speech Therapy')]")
     this.how_to_improve_title = page.locator("//span[contains(text(),'How to Improve Your Speech')]")
     this.how_do_Compare_title = page.locator("//span[contains(text(),'How Do We Compare to Others?')]")
@@ -64,7 +64,7 @@ class SlpPublic {
     this.HOWITWORKS = page.locator("//span[contains(text(),'HOW IT WORKS')]")
     this.videoHowitWorks = page.locator("//img[@alt='Better Speech']")
     this.pricingTable = page.locator("//div[@id='comp-lt51vsl22']")
-    this.Footer = page.locator("//footer[@id='SITE_FOOTER_WRAPPER']")
+    this.Footer = page.locator("//footer[@id='SITE_FOOTER']")
 
 
 

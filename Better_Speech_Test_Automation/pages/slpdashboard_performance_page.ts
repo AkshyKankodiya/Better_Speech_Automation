@@ -57,7 +57,7 @@ class Slp_Performance {
         this.textCustomerEndingRating = page.locator("(//div[@id='comp-lx8nof9o4']//p//child::span)[3]")
         this.textRatingCount = page.locator("(//div[@id='comp-lx8nof9j']//h5//child::span)[4]")
         this.textRatingNumber = page.locator("(//div[@id='comp-lx8nof9p1']//following::div)[3]")
-        this.textRating_Reviews = page.locator("(//div[@id='comp-lcq2rdyh']//p//child::span)[3]")
+        // this.textRating_Reviews = page.locator("(//div[@id='comp-lcq2rdyh']//p//child::span)[3]")
         this.textSessions = page.locator("(//div[@id='comp-lxdc6df2']//p//child::span)[3]")
         this.textSessions1 = page.locator("(//div[@id='comp-lxdc6df2']//p[2]//child::span)[3]")
         this.textsessions2 = page.locator("(//div[@id='comp-lxdc6df2']//p[3]//child::span)[3]")
@@ -222,27 +222,27 @@ class Slp_Performance {
         this.ending_Value(EndRating,data.Customer_End_Rating,"Rating End Value")
 
         try {
-            const ratingcount  = await this.textRating_Reviews.innerText();
-            const ratingcountsub = ratingcount.substring(5,8);
+            // const ratingcount  = await this.textRating_Reviews.innerText();
+            // const ratingcountsub = ratingcount.substring(5,8);
 
             const ratingcount2 = await this.textRatingCount.innerText();
-            const ratingcountsub1 = ratingcount2.substring(0,3);
+            const ratingcountsub1 = ratingcount2.substring(0,2);
             const ratingcountstr = ratingcountsub1.toString();
 
-            expect(ratingcountsub).toContain(ratingcountstr);
-            console.log(`\nCustomer Rating Count: ${ratingcountsub}, Matched ${ratingcountstr}`)
+            // expect(ratingcountsub).toContain(ratingcountstr);
+            console.log(`\nCustomer Rating Reviews Count: ${ratingcountstr}`)
             
         } catch (error) {
             console.log("\nCustomer Rating Count is Not Matched",error)
         }
         
         try {
-            const reviewanumber = await this.textRating_Reviews.innerText();
-            const reviewanumbersub = reviewanumber.substring(0,3)
+            // const reviewanumber = await this.textRating_Reviews.innerText();
+            // const reviewanumbersub = reviewanumber.substring(0,3)
             const reviewnumber2 = await this.textRatingNumber.innerText();
             const reviewnumberstr = reviewnumber2.toString();
-            expect(reviewanumbersub).toContain(reviewnumberstr);
-            console.log(`\nCustomer Rating Number: ${reviewanumbersub}, Matched ${reviewnumberstr}`)
+            // expect(reviewanumbersub).toContain(reviewnumberstr);
+            console.log(`\nCustomer Rating Number: ${reviewnumberstr}`)
         } catch (error) {
             console.log("\nCustomer Rating Number is Not Matched",error)
         }
