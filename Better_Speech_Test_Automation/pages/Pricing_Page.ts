@@ -17,6 +17,7 @@ class PricingPage {
     closeTabPromise: Promise<Page>;
     Email: string;
     emailTextB: Locator;
+    btnChild: Locator;
 
     constructor(page: Page) {
 
@@ -33,6 +34,7 @@ class PricingPage {
         this.closeTabPromise = this.page.waitForEvent('popup');
         this.emailTextB = page.locator("//input[@name='email']")
         this.Email = "qabetterspeech@gmail.com"
+        this.btnChild = page.locator("(//a[@class='MVY5Lo'])[1]//img")
     }
     async navigate() {
 
@@ -41,10 +43,13 @@ class PricingPage {
     }
 
     async verify_LoginAnd_Get_Better_Speech_Buttons() {
+
         await this.clickButtonWithout404(this.page, this.LoginBtn);
         await this.page.waitForTimeout(2000);
-        await this.navigate();
         await this.clickButtonWithout404(this.page, this.BettrtSpeechBtn_1);
+        await this.btnChild.waitFor();
+        await this.clickButtonWithout404(this.page, this.btnChild);
+        await this.page.waitForTimeout(2000);
         await this.switchTab();
 
     }
@@ -75,8 +80,9 @@ class PricingPage {
     }
 
     async verify_Better_Speech_3_Button() {
-
+        
         await this.clickButtonWithout404(this.page, this.BettrtSpeechBtn_3);
+        await this.page.waitForTimeout(2000);
         await this.switchTab();
     }
 
@@ -84,16 +90,17 @@ class PricingPage {
 
         await this.page.waitForTimeout(2000);
         await this.clickButtonWithout404(this.page, this.BettrtSpeechBtn_4);
+        await this.btnChild.waitFor();
+        await this.clickButtonWithout404(this.page, this.btnChild);
+        await this.page.waitForTimeout(2000);
         await this.switchTab();
     }
 
     async switchTab() {
 
-
         const closeTab = await this.closeTabPromise;
         await closeTab.waitForLoadState('domcontentloaded');
         await closeTab.close();
-
 
     }
 
